@@ -6,24 +6,25 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( [
-            'PHETCOMMON/model/Inheritance',
-            'view/CompassNeedleDisplay'
-        ],
-        function ( Inheritance, CompassNeedleDisplay ) {
+define(
+  [
+    'PHETCOMMON/model/Inheritance',
+    'view/CompassNeedleDisplay'
+  ],
+  function ( Inheritance, CompassNeedleDisplay ) {
 
-            /**
-             * @param {Dimension2D} size
-             * @param {Point2D} location
-             * @constructor
-             */
-            function FieldPointDisplay( size, location ) {
-                CompassNeedleDisplay.call( this, size ); // constructor stealing
-                this.location = location;
-            }
+    /**
+     * @param {Dimension2D} size
+     * @param {Point2D} location
+     * @constructor
+     */
+    function FieldPointDisplay( size, location ) {
+      CompassNeedleDisplay.call( this, size ); // constructor stealing
+      this.location = location;
+    }
 
-            // prototype chaining
-            Inheritance.inheritPrototype( FieldPointDisplay, CompassNeedleDisplay );
+    // prototype chaining
+    Inheritance.inheritPrototype( FieldPointDisplay, CompassNeedleDisplay );
 
-            return FieldPointDisplay;
-        } );
+    return FieldPointDisplay;
+  } );

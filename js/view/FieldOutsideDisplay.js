@@ -8,80 +8,81 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( [
-            'easel',
-            'PHETCOMMON/math/Dimension2D',
-            'PHETCOMMON/model/Inheritance',
-            'PHETCOMMON/math/Point2D',
-            'PHETCOMMON/math/MathUtil',
-            'view/FieldPointDisplay'
-        ],
-        function ( Easel, Dimension2D, Inheritance, Point2D, MathUtil, FieldPointDisplay ) {
+define(
+  [
+    'easel',
+    'PHETCOMMON/math/Dimension2D',
+    'PHETCOMMON/model/Inheritance',
+    'PHETCOMMON/math/Point2D',
+    'PHETCOMMON/math/MathUtil',
+    'view/FieldPointDisplay'
+  ],
+  function ( Easel, Dimension2D, Inheritance, Point2D, MathUtil, FieldPointDisplay ) {
 
-            /**
-             * @param {BarMagnet} barMagnet
-             * @param {ModelViewTransform2D} mvt
-             * @param {Dimension2D} canvasSize
-             * @param {Dimension2D} needleSize
-             * @constructor
-             */
-            function FieldOutsideDisplay( barMagnet, mvt, canvasSize, needleSize ) {
+    /**
+     * @param {BarMagnet} barMagnet
+     * @param {ModelViewTransform2D} mvt
+     * @param {Dimension2D} canvasSize
+     * @param {Dimension2D} needleSize
+     * @constructor
+     */
+    function FieldOutsideDisplay( barMagnet, mvt, canvasSize, needleSize ) {
 
-                // constructor stealing
-                Easel.Container.call( this );
+      // constructor stealing
+      Easel.Container.call( this );
 
-                // create a grid of compass needles
-                var needles = [];
-                var that = this;
-                this.resize = function ( canvasSize ) {
+      // create a grid of compass needles
+      var needles = [];
+      var that = this;
+      this.resize = function ( canvasSize ) {
 
-                    that.removeAllChildren();
-                    needles.length = 0; // clears the array
+        that.removeAllChildren();
+        needles.length = 0; // clears the array
 
-                    var SPACING = 20;
+        var SPACING = 20;
 
-                    // delta is the same for both dimensions, because needles rotate
-                    var delta = Math.max( needleSize.width, needleSize.height ) + SPACING;
+        // delta is the same for both dimensions, because needles rotate
+        var delta = Math.max( needleSize.width, needleSize.height ) + SPACING;
 
-                    var gridWidth = canvasSize.width + delta;
-                    var gridHeight = canvasSize.height + delta;
-                    var y = -gridHeight / 2;
-                    while ( y <= gridHeight / 2 ) {
-                        var x = -gridWidth / 2;
-                        while ( x <= gridWidth / 2 ) {
-                            var needle = new FieldPointDisplay( needleSize, new Point2D( x, y ) );
-                            needle.x = x;
-                            needle.y = y;
-                            this.addChild( needle );
-                            needles.push( needle );
-                            x += delta;
-                        }
-                        y += delta;
-                    }
+        var gridWidth = canvasSize.width + delta;
+        var gridHeight = canvasSize.height + delta;
+        var y = -gridHeight / 2;
+        while ( y <= gridHeight / 2 ) {
+          var x = -gridWidth / 2;
+          while ( x <= gridWidth / 2 ) {
+            var needle = new FieldPointDisplay( needleSize, new Point2D( x, y ) );
+            needle.x = x;
+            needle.y = y;
+            this.addChild( needle );
+            needles.push( needle );
+            x += delta;
+          }
+          y += delta;
+        }
 
-                    this.updateField();
-                };
+        this.updateField();
+      };
 
-                // Register for synchronization with model.
-                this.updateField = function() {
-                    if ( that.visible ) {
-                        // @param {FieldPointDisplay} item
-                        needles.forEach( function ( needle ) {
-                            var vector = barMagnet.getFieldAt( mvt.viewToModel( needle.location ) );
-                            needle.rotation = MathUtil.toDegrees( vector.getAngle() );
-                            needle.alpha = Math.min( 1, vector.getMagnitude() / barMagnet.strengthRange.max );
-                        } );
-                    }
-                }
-                barMagnet.location.addObserver( this.updateField );
-                barMagnet.strength.addObserver( this.updateField );
-                barMagnet.orientation.addObserver( this.updateField );
+      // Register for synchronization with model.
+      this.updateField = function () {
+        if ( that.visible ) {
+          // @param {FieldPointDisplay} item
+          needles.forEach( function ( needle ) {
+            var vector = barMagnet.getFieldAt( mvt.viewToModel( needle.location ) );
+            needle.rotation = MathUtil.toDegrees( vector.getAngle() );
+            needle.alpha = Math.min( 1, vector.getMagnitude() / barMagnet.strengthRange.max );
+          } );
+        }
+      }
+      barMagnet.location.addObserver( this.updateField );
+      barMagnet.strength.addObserver( this.updateField );
+      barMagnet.orientation.addObserver( this.updateField );
 
-                this.resize( canvasSize ); // initial size
-            }
+      this.resize( canvasSize ); // initial size
+    }
 
-            // prototype chaining
-            Inheritance.inheritPrototype( FieldOutsideDisplay, Easel.Container );
+    // prototype chaining
+    Inheritance.inheritPrototype( FieldOutsideDisplay, Easel.Container );
 
-            return FieldOutsideDisplay;
-        } );
+    return FieldOutsideDisplay;
+  } );

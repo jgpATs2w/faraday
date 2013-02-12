@@ -5,43 +5,44 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-require( [
-             'easel',
-             'i18n!../nls/faraday-strings',
-             'PHETCOMMON/view/CanvasQuirks',
-             'PHETCOMMON/util/Logger',
-             'PHETCOMMON/view/ModelViewTransform2D',
-             'PHETCOMMON/view/PrototypeDialog',
-             'model/FaradayModel',
-             'view/OptionsPanel',
-             'view/FaradayStage'
-         ],
-         function ( Easel, Strings, CanvasQuirks, Logger, ModelViewTransform2D, PrototypeDialog, FaradayModel, OptionsPanel, FaradayStage ) {
+require(
+  [
+    'easel',
+    'i18n!../nls/faraday-strings',
+    'PHETCOMMON/view/CanvasQuirks',
+    'PHETCOMMON/util/Logger',
+    'PHETCOMMON/view/ModelViewTransform2D',
+    'PHETCOMMON/view/PrototypeDialog',
+    'model/FaradayModel',
+    'view/OptionsPanel',
+    'view/FaradayStage'
+  ],
+  function ( Easel, Strings, CanvasQuirks, Logger, ModelViewTransform2D, PrototypeDialog, FaradayModel, OptionsPanel, FaradayStage ) {
 
-             Logger.enabled = true;
+    Logger.enabled = true;
 
-             // Title --------------------------------------------------------------------
+    // Title --------------------------------------------------------------------
 
-             $( 'title' ).html( Strings.title );
+    $( 'title' ).html( Strings.title );
 
-             // Canvas --------------------------------------------------------------------
+    // Canvas --------------------------------------------------------------------
 
-             var canvas = document.getElementById( 'faraday-canvas' );
-             CanvasQuirks.fixTextCursor( canvas );
+    var canvas = document.getElementById( 'faraday-canvas' );
+    CanvasQuirks.fixTextCursor( canvas );
 
-             // MVC --------------------------------------------------------------------
+    // MVC --------------------------------------------------------------------
 
-             var model = new FaradayModel();
-             var stage = new FaradayStage( canvas, model );
-             OptionsPanel.init( model, stage );
+    var model = new FaradayModel();
+    var stage = new FaradayStage( canvas, model );
+    OptionsPanel.init( model, stage );
 
-             // Animation loop ----------------------------------------------------------
+    // Animation loop ----------------------------------------------------------
 
-             Easel.Ticker.addListener( model );
-             Easel.Ticker.addListener( stage );
-             Easel.Ticker.addListener( stage.frameRateDisplay );
-             Easel.Ticker.setFPS( 60 );
-             Easel.Touch.enable( stage, false, false );
+    Easel.Ticker.addListener( model );
+    Easel.Ticker.addListener( stage );
+    Easel.Ticker.addListener( stage.frameRateDisplay );
+    Easel.Ticker.setFPS( 60 );
+    Easel.Touch.enable( stage, false, false );
 
-             PrototypeDialog.init( Strings.title );
-         } );
+    PrototypeDialog.init( Strings.title );
+  } );
