@@ -1,0 +1,1 @@
+This is a fork of jquery.mobile 1.2.0, modified by Sam Reid (search for "PhET.SR")
