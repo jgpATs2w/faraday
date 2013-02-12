@@ -11,10 +11,10 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( [
-            'phetcommon/util/Logger',
-            'phetcommon/math/Point2D',
-            'phetcommon/model/property/Property',
-            'phetcommon/math/Vector2D'
+            'PHETCOMMON/util/Logger',
+            'PHETCOMMON/math/Point2D',
+            'PHETCOMMON/model/property/Property',
+            'PHETCOMMON/math/Vector2D'
         ],
         function ( Logger, Point2D, Property, Vector2D ) {
 

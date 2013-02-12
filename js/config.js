@@ -1,4 +1,4 @@
-// Copyright 2002-2012, University of Colorado
+// Copyright 2002-2013, University of Colorado
 
 /*
  * RequireJS configuration file for the "Faraday's Electromagnetic Lab" sim.
@@ -12,15 +12,15 @@ require.config( {
 
     paths: {
         // contrib
-        easel:"../../../contrib/easel-0.5.0",
-        i18n:"../../../contrib/i18n-2.0.1-phet",
-        image:"../../../contrib/image-0.2.1",
-        tpl: "../../../contrib/tpl-0.2",
+        easel:"../contrib/easel-0.5.0",
+        i18n:"../contrib/i18n/i18n",
+        image:"../contrib/image-0.2.1",
+        tpl: "../contrib/tpl-0.2",
 
         // common
-        phetcommon:"../../../common/phetcommon/js",
-        phetcommon_html:"../../../common/phetcommon/html",
-        'easel-phet':"../../../common/easel-phet/js"
+        PHETCOMMON:"../common/phetcommon/js",
+        PHETCOMMON_HTML:"../common/phetcommon/html",
+        'EASEL-PHET':"../common/easel-phet/js"
     },
 
     shim: {

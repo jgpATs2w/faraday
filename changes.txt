@@ -1,3 +1,4 @@
+2/13/12 fix requirejs config and imports
 2/13/12 ****** moved faraday prototype from Unfuddle SVN to GitHub, lost commit history, does not run
 12/13/12 right justify values in field meter
 12/13/12 add missing title to field meter

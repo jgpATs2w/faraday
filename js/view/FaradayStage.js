@@ -7,11 +7,11 @@
  */
 define( [
             'easel',
-            'phetcommon/math/Dimension2D',
-            'common/Inheritance',
-            'phetcommon/view/ModelViewTransform2D',
-            'phetcommon/math/Point2D',
-            'phetcommon/model/property/Property',
+            'PHETCOMMON/math/Dimension2D',
+            'PHETCOMMON/model/Inheritance',
+            'PHETCOMMON/view/ModelViewTransform2D',
+            'PHETCOMMON/math/Point2D',
+            'PHETCOMMON/model/property/Property',
             'view/BarMagnetDisplay',
             'view/CompassDisplay',
             'view/FieldInsideDisplay',

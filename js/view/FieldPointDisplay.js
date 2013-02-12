@@ -7,7 +7,7 @@
  * @author Chris Malley (PixelZoom, Inc.)
  */
 define( [
-            'common/Inheritance',
+            'PHETCOMMON/model/Inheritance',
             'view/CompassNeedleDisplay'
         ],
         function ( Inheritance, CompassNeedleDisplay ) {
