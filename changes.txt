@@ -1,8 +1,8 @@
-2/13/12 reformat with 2-space indents
-2/13/12 replace FrameRateDisplay with easel-phet/nodes/FrameRateNode
-2/13/12 prototype is now working
-2/13/12 fix requirejs config and imports
-2/13/12 ****** moved faraday prototype from Unfuddle SVN to GitHub, lost commit history, does not run
+2/12/13 reformat with 2-space indents
+2/12/13 replace FrameRateDisplay with easel-phet/nodes/FrameRateNode
+2/12/13 prototype is now working
+2/12/13 fix requirejs config and imports
+2/12/13 ****** moved faraday prototype from Unfuddle SVN to GitHub, lost commit history, does not run
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 12/13/12 right justify values in field meter
 12/13/12 add missing title to field meter
