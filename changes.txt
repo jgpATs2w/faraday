@@ -1,3 +1,4 @@
+2/13/12 replace FrameRateDisplay with easel-phet/nodes/FrameRateNode
 2/13/12 prototype is now working
 2/13/12 fix requirejs config and imports
 2/13/12 ****** moved faraday prototype from Unfuddle SVN to GitHub, lost commit history, does not run
