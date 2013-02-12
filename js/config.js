@@ -17,7 +17,7 @@ require.config( {
         image:"../contrib/image-0.2.1",
         tpl: "../contrib/tpl-0.2",
 
-        // common
+        // common directories, uppercase names to identify them in require imports
         PHETCOMMON:"../common/phetcommon/js",
         PHETCOMMON_HTML:"../common/phetcommon/html",
         'EASEL-PHET':"../common/easel-phet/js"
