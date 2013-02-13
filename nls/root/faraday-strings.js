@@ -1,5 +1,6 @@
 // Copyright 2002-2012, University of Colorado
 
+// English strings
 define(
   {
     "flipPolarity": "Flip Polarity",

@@ -1,5 +1,6 @@
 // Copyright 2002-2012, University of Colorado
 
+// French strings
 define(
   {
     "flipPolarity": "Intervertir les p\u00F4les Nord (N) et Sud (S)",
