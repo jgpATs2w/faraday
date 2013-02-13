@@ -1,6 +1,8 @@
 // Copyright 2002-2012, University of Colorado
 
-define( {
-            "root":true,
-            "fr":true
-        } );
+// Supported locales
+define(
+  {
+    "root": true,
+    "fr": true
+  } );
