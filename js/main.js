@@ -17,13 +17,13 @@ require(
     'view/OptionsPanel',
     'view/FaradayStage'
   ],
-  function ( Easel, Strings, CanvasQuirks, Logger, ModelViewTransform2D, PrototypeDialog, FaradayModel, OptionsPanel, FaradayStage ) {
+  function ( Easel, strings, CanvasQuirks, Logger, ModelViewTransform2D, PrototypeDialog, FaradayModel, OptionsPanel, FaradayStage ) {
 
     Logger.enabled = true;
 
     // Title --------------------------------------------------------------------
 
-    $( 'title' ).html( Strings.title );
+    $( 'title' ).html( strings.title );
 
     // Canvas --------------------------------------------------------------------
 
@@ -34,7 +34,7 @@ require(
 
     var model = new FaradayModel();
     var stage = new FaradayStage( canvas, model );
-    OptionsPanel.init( model, stage );
+    OptionsPanel.init( strings, model, stage );
 
     // Animation loop ----------------------------------------------------------
 
@@ -44,5 +44,5 @@ require(
     Easel.Ticker.setFPS( 60 );
     Easel.Touch.enable( stage, false, false );
 
-    PrototypeDialog.init( Strings.title );
+    PrototypeDialog.init( strings.title );
   } );

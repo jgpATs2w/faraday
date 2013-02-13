@@ -8,21 +8,21 @@
 define(
   [
     'common/WidgetConnector',
-    'i18n!../../nls/faraday-strings',
     'tpl!../../html/optionsButton.html',
     'tpl!../../html/optionsPanel.html'
   ],
-  function ( WidgetConnector, strings, optionsButtonTemplate, optionsPanelTemplate ) {
+  function ( WidgetConnector, optionsButtonTemplate, optionsPanelTemplate ) {
 
     function OptionsPanel() {
     }
 
     /**
      * Initializes the Options panel. This should only be called once.
+     * @param strings
      * @param {FaradayModel} model
      * @param {FaradayStage} stage
      */
-    OptionsPanel.init = function ( model, stage ) {
+    OptionsPanel.init = function ( strings, model, stage ) {
 
       // DOM modification ------------------------------------------------------------
 
