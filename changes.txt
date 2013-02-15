@@ -1,3 +1,4 @@
+2/15/13 change submodule urls to https so they are not read-only
 2/12/13 reformat string files with 2-space indents
 2/12/13 fix option panel i18n by passing strings to OptionPanel.init
 2/12/13 reformat with 2-space indents
