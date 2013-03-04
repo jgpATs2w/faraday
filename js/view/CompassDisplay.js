@@ -10,7 +10,7 @@ define(
     'easel',
     'PHETCOMMON/math/Dimension2D',
     'EASEL-PHET/events/DragHandler',
-    'PHETCOMMON/model/Inheritance',
+    'PHETCOMMON/util/Inheritance',
     'PHETCOMMON/math/MathUtil',
     'PHETCOMMON/math/Vector2D',
     'view/CompassNeedleDisplay'

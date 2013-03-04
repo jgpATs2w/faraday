@@ -7,7 +7,7 @@ define(
   [
     'easel',
     'PHETCOMMON/math/Dimension2D',
-    'PHETCOMMON/model/Inheritance',
+    'PHETCOMMON/util/Inheritance',
     'PHETCOMMON/math/MathUtil',
     'view/CompassNeedleDisplay'
   ],

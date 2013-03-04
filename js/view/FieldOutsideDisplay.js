@@ -12,7 +12,7 @@ define(
   [
     'easel',
     'PHETCOMMON/math/Dimension2D',
-    'PHETCOMMON/model/Inheritance',
+    'PHETCOMMON/util/Inheritance',
     'PHETCOMMON/math/Point2D',
     'PHETCOMMON/math/MathUtil',
     'view/FieldPointDisplay'
