@@ -8,7 +8,7 @@
 define(
   [
     'easel',
-    'PHETCOMMON/math/Dimension2D',
+    'common/Dimension2D',
     'PHETCOMMON/util/Inheritance'
   ],
   function ( Easel, Dimension2D, Inheritance ) {

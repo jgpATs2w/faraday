@@ -11,13 +11,13 @@
 define(
   [
     'easel',
-    'PHETCOMMON/math/Dimension2D',
     'PHETCOMMON/util/Inheritance',
-    'PHETCOMMON/math/Point2D',
     'PHETCOMMON/math/MathUtil',
+    'common/Dimension2D',
+    'common/Point2D',
     'view/FieldPointDisplay'
   ],
-  function ( Easel, Dimension2D, Inheritance, Point2D, MathUtil, FieldPointDisplay ) {
+  function ( Easel, Inheritance, MathUtil, Dimension2D, Point2D, FieldPointDisplay ) {
 
     /**
      * @param {BarMagnet} barMagnet

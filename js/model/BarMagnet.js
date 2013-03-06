@@ -13,9 +13,9 @@
 define(
   [
     'PHETCOMMON/util/Logger',
-    'PHETCOMMON/math/Point2D',
+    'common/Point2D',
     'PHETCOMMON/model/property/Property',
-    'PHETCOMMON/math/Vector2D'
+    'common/Vector2D'
   ],
   function ( Logger, Point2D, Property, Vector2D ) {
 

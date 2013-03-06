@@ -6,12 +6,12 @@
 define(
   [
     'easel',
-    'PHETCOMMON/math/Dimension2D',
     'PHETCOMMON/util/Inheritance',
     'PHETCOMMON/math/MathUtil',
+    'common/Dimension2D',
     'view/CompassNeedleDisplay'
   ],
-  function ( Easel, Dimension2D, Inheritance, MathUtil, CompassNeedleDisplay ) {
+  function ( Easel, Inheritance, MathUtil, Dimension2D, CompassNeedleDisplay ) {
 
     /**
      * @param {BarMagnet} barMagnet

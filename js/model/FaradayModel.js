@@ -8,8 +8,8 @@
 define(
   [
     'easel',
-    'PHETCOMMON/math/Dimension2D',
-    'PHETCOMMON/math/Point2D',
+    'common/Dimension2D',
+    'common/Point2D',
     'PHETCOMMON/math/Range',
     'model/BarMagnet',
     'model/Compass',
