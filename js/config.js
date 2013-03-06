@@ -10,6 +10,12 @@ require.config(
   {
     deps: ["main"],
 
+    config: {
+      i18n: {
+        locale: "en_us" // test i18n by changing this
+      }
+    },
+
     paths: {
       // contrib
       easel: "../contrib/easel-0.5.0",

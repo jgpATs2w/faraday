@@ -1,3 +1,4 @@
+3/6/13 add i18n:config to config.js
 3/6/13 deleted usage of google analytics
 3/6/13 added official version of i18n.js (not phet fork)
 3/6/13 deleted all submodules
