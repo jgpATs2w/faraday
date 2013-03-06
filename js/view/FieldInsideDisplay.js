@@ -6,9 +6,9 @@
 define(
   [
     'easel',
-    'PHETCOMMON/util/Inheritance',
-    'PHETCOMMON/math/MathUtil',
-    'common/Dimension2D',
+    'common/util/Inheritance',
+    'common/math/MathUtil',
+    'common/math/Dimension2D',
     'view/CompassNeedleDisplay'
   ],
   function ( Easel, Inheritance, MathUtil, Dimension2D, CompassNeedleDisplay ) {

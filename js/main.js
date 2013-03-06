@@ -9,10 +9,10 @@ require(
   [
     'easel',
     'i18n!../nls/faraday-strings',
-    'PHETCOMMON/view/CanvasQuirks',
-    'PHETCOMMON/util/Logger',
-    'PHETCOMMON/view/ModelViewTransform2D',
-    'PHETCOMMON/view/PrototypeDialog',
+    'common/view/CanvasQuirks',
+    'common/util/Logger',
+    'common/view/ModelViewTransform2D',
+    'common/view/PrototypeDialog',
     'model/FaradayModel',
     'view/OptionsPanel',
     'view/FaradayStage'

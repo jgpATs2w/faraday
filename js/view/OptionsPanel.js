@@ -7,7 +7,7 @@
  */
 define(
   [
-    'common/WidgetConnector',
+    'view/WidgetConnector',
     'tpl!../../html/optionsButton.html',
     'tpl!../../html/optionsPanel.html'
   ],

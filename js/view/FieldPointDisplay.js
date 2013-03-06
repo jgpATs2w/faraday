@@ -8,7 +8,7 @@
  */
 define(
   [
-    'PHETCOMMON/util/Inheritance',
+    'common/util/Inheritance',
     'view/CompassNeedleDisplay'
   ],
   function ( Inheritance, CompassNeedleDisplay ) {

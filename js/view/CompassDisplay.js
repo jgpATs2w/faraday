@@ -8,11 +8,11 @@
 define(
   [
     'easel',
-    'common/Dimension2D',
-    'EASEL-PHET/events/DragHandler',
-    'PHETCOMMON/util/Inheritance',
-    'PHETCOMMON/math/MathUtil',
-    'common/Vector2D',
+    'common/math/Dimension2D',
+    'common/easel/DragHandler',
+    'common/util/Inheritance',
+    'common/math/MathUtil',
+    'common/math/Vector2D',
     'view/CompassNeedleDisplay'
   ],
   function ( Easel, Dimension2D, DragHandler, Inheritance, MathUtil, Vector2D, CompassNeedleDisplay ) {

@@ -15,9 +15,9 @@
 define(
   [
     'easel',
-    'EASEL-PHET/events/DragHandler',
-    'PHETCOMMON/util/Inheritance',
-    'PHETCOMMON/math/MathUtil',
+    'common/easel/DragHandler',
+    'common/util/Inheritance',
+    'common/math/MathUtil',
     'image!images/barMagnet.png'
   ],
   function ( Easel, DragHandler, Inheritance, MathUtil, barMagnetImage ) {

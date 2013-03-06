@@ -12,10 +12,10 @@
  */
 define(
   [
-    'PHETCOMMON/util/Logger',
-    'common/Point2D',
-    'PHETCOMMON/model/property/Property',
-    'common/Vector2D'
+    'common/util/Logger',
+    'common/math/Point2D',
+    'common/model/Property',
+    'common/math/Vector2D'
   ],
   function ( Logger, Point2D, Property, Vector2D ) {
 

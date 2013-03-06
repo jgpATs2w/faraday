@@ -9,7 +9,7 @@
  */
 define(
   [
-    'PHETCOMMON/math/MathUtil',
+    'common/math/MathUtil',
     'model/Compass',
     'model/BarMagnet'
   ],

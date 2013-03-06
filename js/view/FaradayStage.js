@@ -8,17 +8,17 @@
 define(
   [
     'easel',
-    'common/Dimension2D',
-    'PHETCOMMON/util/Inheritance',
-    'PHETCOMMON/view/ModelViewTransform2D',
-    'common/Point2D',
-    'PHETCOMMON/model/property/Property',
+    'common/math/Dimension2D',
+    'common/util/Inheritance',
+    'common/view/ModelViewTransform2D',
+    'common/math/Point2D',
+    'common/model/Property',
     'view/BarMagnetDisplay',
     'view/CompassDisplay',
     'view/FieldInsideDisplay',
     'view/FieldMeterDisplay',
     'view/FieldOutsideDisplay',
-    'EASEL-PHET/nodes/FrameRateNode',
+    'common/easel/FrameRateNode',
     'i18n!../../nls/faraday-strings'
   ],
   function ( Easel, Dimension2D, Inheritance, ModelViewTransform2D, Point2D, Property, BarMagnetDisplay, CompassDisplay, FieldInsideDisplay, FieldMeterDisplay, FieldOutsideDisplay, FrameRateNode, strings ) {

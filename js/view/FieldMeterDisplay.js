@@ -8,9 +8,9 @@
 define(
   [
     'easel',
-    'EASEL-PHET/events/DragHandler',
-    'PHETCOMMON/util/Inheritance',
-    'PHETCOMMON/math/MathUtil',
+    'common/easel/DragHandler',
+    'common/util/Inheritance',
+    'common/math/MathUtil',
     'i18n!../../nls/faraday-strings',
     'image!images/fieldMeter.png'
   ],
