@@ -6,12 +6,10 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'common/util/Inheritance',
-    'view/CompassNeedleDisplay'
-  ],
-  function( Inheritance, CompassNeedleDisplay ) {
+define( function(require) {
+
+    var Inheritance = require('common/util/Inheritance');
+    var CompassNeedleDisplay = require('view/CompassNeedleDisplay');
 
     /**
      * @param {Dimension2D} size

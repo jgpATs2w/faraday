@@ -5,16 +5,14 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'easel',
-    'common/easel/DragHandler',
-    'common/util/Inheritance',
-    'common/math/MathUtil',
-    'i18n!../../nls/faraday-strings',
-    'image!images/fieldMeter.png'
-  ],
-  function( Easel, DragHandler, Inheritance, MathUtil, Strings, fieldMeterImage ) {
+define( function( require ) {
+
+    var Easel = require('easel');
+    var DragHandler = require('common/easel/DragHandler');
+    var Inheritance = require('common/util/Inheritance');
+    var MathUtil = require('common/math/MathUtil');
+    var Strings = require('i18n!../../nls/faraday-strings');
+    var fieldMeterImage = require('image!images/fieldMeter.png');
 
     /**
      * @param {FieldMeter} fieldMeter

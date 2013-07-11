@@ -8,16 +8,14 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'easel',
-    'common/util/Inheritance',
-    'common/math/MathUtil',
-    'common/math/Dimension2D',
-    'common/math/Point2D',
-    'view/FieldPointDisplay'
-  ],
-  function( Easel, Inheritance, MathUtil, Dimension2D, Point2D, FieldPointDisplay ) {
+define( function(require) {
+
+    var Easel = require('easel');
+    var Inheritance = require('common/util/Inheritance');
+    var MathUtil = require('common/math/MathUtil');
+    var Dimension2D = require('common/math/Dimension2D');
+    var Point2D = require('common/math/Point2D');
+    var FieldPointDisplay = require('view/FieldPointDisplay');
 
     /**
      * @param {BarMagnet} barMagnet
