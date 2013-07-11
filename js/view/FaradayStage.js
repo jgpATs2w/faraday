@@ -18,10 +18,9 @@ define(
     'view/FieldInsideDisplay',
     'view/FieldMeterDisplay',
     'view/FieldOutsideDisplay',
-    'common/easel/FrameRateNode',
-    'i18n!../../nls/faraday-strings'
+    'common/easel/FrameRateNode'
   ],
-  function( Easel, Dimension2D, Inheritance, ModelViewTransform2D, Point2D, Property, BarMagnetDisplay, CompassDisplay, FieldInsideDisplay, FieldMeterDisplay, FieldOutsideDisplay, FrameRateNode, strings ) {
+  function( Easel, Dimension2D, Inheritance, ModelViewTransform2D, Point2D, Property, BarMagnetDisplay, CompassDisplay, FieldInsideDisplay, FieldMeterDisplay, FieldOutsideDisplay, FrameRateNode ) {
 
     function FaradayStage( canvas, model ) {
 
