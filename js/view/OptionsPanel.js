@@ -5,94 +5,94 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function(require) {
+define( function( require ) {
 
-    var WidgetConnector = require('view/WidgetConnector');
-    var optionsButtonTemplate = require('tpl!../../html/optionsButton.html');
-    var optionsPanelTemplate = require('tpl!../../html/optionsPanel.html');
+  var WidgetConnector = require( 'view/WidgetConnector' );
+  var optionsButtonTemplate = require( 'tpl!../../html/optionsButton.html' );
+  var optionsPanelTemplate = require( 'tpl!../../html/optionsPanel.html' );
 
-    function OptionsPanel() {
-    }
+  function OptionsPanel() {
+  }
 
-    /**
-     * Initializes the Options panel. This should only be called once.
-     * @param strings
-     * @param {FaradayModel} model
-     * @param {FaradayStage} stage
+  /**
+   * Initializes the Options panel. This should only be called once.
+   * @param strings
+   * @param {FaradayModel} model
+   * @param {FaradayStage} stage
+   */
+  OptionsPanel.init = function( strings, model, stage ) {
+
+    // DOM modification ------------------------------------------------------------
+
+    // Add the Options button to the DOM, hide it when it's clicked
+    var optionsButtonFragment = optionsButtonTemplate( { options: strings.options } );
+    var optionsButtonDiv = $( '#optionsButtonDiv' );
+    optionsButtonDiv.append( $( optionsButtonFragment ) ).trigger( 'create' );
+    optionsButtonDiv.bind( 'click',
+      function() {
+        optionsButtonDiv.hide();
+      } );
+
+    // Add the Options panel to the DOM
+    var optionsPanelFragment = optionsPanelTemplate(
+      {
+        options: strings.options,
+        magnetStrength: strings.magnetStrength,
+        flipPolarity: strings.flipPolarity,
+        seeInsideMagnet: strings.seeInsideMagnet,
+        showCompass: strings.showCompass,
+        showField: strings.showField,
+        showFieldMeter: strings.showFieldMeter,
+        resetAll: strings.resetAll
+      } );
+    $( '#optionsPanelDiv' ).append( $( optionsPanelFragment ) ).trigger( 'create' );
+
+    /*
+     * Workaround for jQuery.mobile bug,
+     * see http://stackoverflow.com/questions/8088837/jquery-mobile-triggercreate-command-not-working
      */
-    OptionsPanel.init = function( strings, model, stage ) {
+    $( '.ui-page' ).trigger( 'pagecreate' );
 
-      // DOM modification ------------------------------------------------------------
+    // Make the Options panel the same height as the window
+    $( '#optionsPanel' ).on(
+      {
+        popupbeforeposition: function() {
+          var h = $( window ).height();
+          $( '#optionsPanel' ).css( 'height', h );
+        }
+      } );
 
-      // Add the Options button to the DOM, hide it when it's clicked
-      var optionsButtonFragment = optionsButtonTemplate( { options: strings.options } );
-      var optionsButtonDiv = $( '#optionsButtonDiv' );
-      optionsButtonDiv.append( $( optionsButtonFragment ) ).trigger( 'create' );
-      optionsButtonDiv.bind( 'click',
-        function() {
-          optionsButtonDiv.hide();
-        } );
+    // Wire up DOM components ------------------------------------------------------
 
-      // Add the Options panel to the DOM
-      var optionsPanelFragment = optionsPanelTemplate(
-        {
-          options: strings.options,
-          magnetStrength: strings.magnetStrength,
-          flipPolarity: strings.flipPolarity,
-          seeInsideMagnet: strings.seeInsideMagnet,
-          showCompass: strings.showCompass,
-          showField: strings.showField,
-          showFieldMeter: strings.showFieldMeter,
-          resetAll: strings.resetAll
-        } );
-      $( '#optionsPanelDiv' ).append( $( optionsPanelFragment ) ).trigger( 'create' );
+    // slider
+    WidgetConnector.connectSliderToProperty( 'strengthSlider', model.barMagnet.strength );
 
-      /*
-       * Workaround for jQuery.mobile bug,
-       * see http://stackoverflow.com/questions/8088837/jquery-mobile-triggercreate-command-not-working
-       */
-      $( '.ui-page' ).trigger( 'pagecreate' );
+    // check boxes
+    WidgetConnector.connectCheckBoxToProperty( 'seeInsideCheckBox', stage.seeInside );
+    WidgetConnector.connectCheckBoxToProperty( 'compassCheckBox', model.compass.visible );
+    WidgetConnector.connectCheckBoxToProperty( 'fieldCheckBox', stage.showField );
+    WidgetConnector.connectCheckBoxToProperty( 'meterCheckBox', model.fieldMeter.visible );
 
-      // Make the Options panel the same height as the window
-      $( '#optionsPanel' ).on(
-        {
-          popupbeforeposition: function() {
-            var h = $( window ).height();
-            $( '#optionsPanel' ).css( 'height', h );
-          }
-        } );
+    // buttons
+    WidgetConnector.connectButtonToFunction( 'flipPolarityButton',
+      function() {
+        model.barMagnet.orientation.set( model.barMagnet.orientation.get() + Math.PI );
+        model.compass.startMovingNow();
+      } );
+    WidgetConnector.connectButtonToFunction( 'resetAllButton',
+      function() {
+        model.reset();
+        stage.reset();
+      } );
 
-      // Wire up DOM components ------------------------------------------------------
+    // When the panel is closed, make the Options button visible.
+    $( '#optionsPanel' ).bind(
+      {
+        popupafterclose: function( event, ui ) {
+          $( '#optionsButtonDiv' ).show();
+        }
+      } );
+  };
 
-      // slider
-      WidgetConnector.connectSliderToProperty( 'strengthSlider', model.barMagnet.strength );
-
-      // check boxes
-      WidgetConnector.connectCheckBoxToProperty( 'seeInsideCheckBox', stage.seeInside );
-      WidgetConnector.connectCheckBoxToProperty( 'compassCheckBox', model.compass.visible );
-      WidgetConnector.connectCheckBoxToProperty( 'fieldCheckBox', stage.showField );
-      WidgetConnector.connectCheckBoxToProperty( 'meterCheckBox', model.fieldMeter.visible );
-
-      // buttons
-      WidgetConnector.connectButtonToFunction( 'flipPolarityButton',
-        function() {
-          model.barMagnet.orientation.set( model.barMagnet.orientation.get() + Math.PI );
-          model.compass.startMovingNow();
-        } );
-      WidgetConnector.connectButtonToFunction( 'resetAllButton',
-        function() {
-          model.reset();
-          stage.reset();
-        } );
-
-      // When the panel is closed, make the Options button visible.
-      $( '#optionsPanel' ).bind(
-        {
-          popupafterclose: function( event, ui ) {
-            $( '#optionsButtonDiv' ).show();
-          }
-        } );
-    };
-
-    return OptionsPanel;
-  } );
+  return OptionsPanel;
+} );

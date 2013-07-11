@@ -6,23 +6,23 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function(require) {
+define( function( require ) {
 
-    var Inheritance = require('common/util/Inheritance');
-    var CompassNeedleDisplay = require('view/CompassNeedleDisplay');
+  var Inheritance = require( 'common/util/Inheritance' );
+  var CompassNeedleDisplay = require( 'view/CompassNeedleDisplay' );
 
-    /**
-     * @param {Dimension2D} size
-     * @param {Point2D} location
-     * @constructor
-     */
-    function FieldPointDisplay( size, location ) {
-      CompassNeedleDisplay.call( this, size ); // constructor stealing
-      this.location = location;
-    }
+  /**
+   * @param {Dimension2D} size
+   * @param {Point2D} location
+   * @constructor
+   */
+  function FieldPointDisplay( size, location ) {
+    CompassNeedleDisplay.call( this, size ); // constructor stealing
+    this.location = location;
+  }
 
-    // prototype chaining
-    Inheritance.inheritPrototype( FieldPointDisplay, CompassNeedleDisplay );
+  // prototype chaining
+  Inheritance.inheritPrototype( FieldPointDisplay, CompassNeedleDisplay );
 
-    return FieldPointDisplay;
-  } );
+  return FieldPointDisplay;
+} );

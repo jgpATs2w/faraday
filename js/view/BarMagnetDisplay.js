@@ -12,52 +12,52 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define( function(require) {
+define( function( require ) {
 
-    var Easel = require('easel');
-    var DragHandler = require('common/easel/DragHandler');
-    var Inheritance = require('common/util/Inheritance');
-    var MathUtil = require('common/math/MathUtil');
-    var barMagnetImage = require('image!images/barMagnet.png');
+  var Easel = require( 'easel' );
+  var DragHandler = require( 'common/easel/DragHandler' );
+  var Inheritance = require( 'common/util/Inheritance' );
+  var MathUtil = require( 'common/math/MathUtil' );
+  var barMagnetImage = require( 'image!images/barMagnet.png' );
 
-    /**
-     * @class BarMagnetDisplay
-     * @constructor
-     * @param {BarMagnet} barMagnet
-     * @param {ModelViewTransform2D} mvt
-     */
-    function BarMagnetDisplay( barMagnet, mvt ) {
+  /**
+   * @class BarMagnetDisplay
+   * @constructor
+   * @param {BarMagnet} barMagnet
+   * @param {ModelViewTransform2D} mvt
+   */
+  function BarMagnetDisplay( barMagnet, mvt ) {
 
-      // Use constructor stealing to inherit instance properties.
-      Easel.Bitmap.call( this, barMagnetImage );
+    // Use constructor stealing to inherit instance properties.
+    Easel.Bitmap.call( this, barMagnetImage );
 
-      // Compute scale factors to match model.
-      this.scaleX = mvt.modelToView( barMagnet.size.width ) / this.image.width;
-      this.scaleY = mvt.modelToView( barMagnet.size.height ) / this.image.height;
+    // Compute scale factors to match model.
+    this.scaleX = mvt.modelToView( barMagnet.size.width ) / this.image.width;
+    this.scaleY = mvt.modelToView( barMagnet.size.height ) / this.image.height;
 
-      // Move registration point to the center.
-      this.regX = this.image.width / 2;
-      this.regY = this.image.height / 2;
+    // Move registration point to the center.
+    this.regX = this.image.width / 2;
+    this.regY = this.image.height / 2;
 
-      // @param {Point2D} point
-      DragHandler.register( this, function( point ) {
-        barMagnet.location.set( mvt.viewToModel( point ) );
-      } );
+    // @param {Point2D} point
+    DragHandler.register( this, function( point ) {
+      barMagnet.location.set( mvt.viewToModel( point ) );
+    } );
 
-      // Register for synchronization with model.
-      var that = this;
-      barMagnet.location.addObserver( function updateLocation( /* Point2D */ location ) {
-        var point = mvt.modelToView( location );
-        that.x = point.x;
-        that.y = point.y;
-      } );
-      barMagnet.orientation.addObserver( function updateOrientation( orientation /* radians */ ) {
-        that.rotation = MathUtil.toDegrees( orientation );
-      } );
-    }
+    // Register for synchronization with model.
+    var that = this;
+    barMagnet.location.addObserver( function updateLocation( /* Point2D */ location ) {
+      var point = mvt.modelToView( location );
+      that.x = point.x;
+      that.y = point.y;
+    } );
+    barMagnet.orientation.addObserver( function updateOrientation( orientation /* radians */ ) {
+      that.rotation = MathUtil.toDegrees( orientation );
+    } );
+  }
 
-    // prototype chaining
-    Inheritance.inheritPrototype( BarMagnetDisplay, Easel.Bitmap );
+  // prototype chaining
+  Inheritance.inheritPrototype( BarMagnetDisplay, Easel.Bitmap );
 
-    return BarMagnetDisplay;
-  } );
+  return BarMagnetDisplay;
+} );
