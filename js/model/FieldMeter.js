@@ -5,12 +5,10 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'common/util/Logger',
-    'common/model/Property'
-  ],
-  function( Logger, Property ) {
+define( function(require) {
+
+    var Logger = require('common/util/Logger');
+    var Property = require('common/model/Property');
 
     function FieldMeter( location, visible, magnet ) {
 

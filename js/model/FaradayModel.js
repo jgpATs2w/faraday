@@ -5,17 +5,14 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'easel',
-    'common/math/Dimension2D',
-    'common/math/Point2D',
-    'common/math/Range',
-    'model/BarMagnet',
-    'model/Compass',
-    'model/FieldMeter'
-  ],
-  function( Easel, Dimension2D, Point2D, Range, BarMagnet, Compass, FieldMeter ) {
+define( function( require ) {
+
+    var Dimension2D = require('common/math/Dimension2D');
+    var Point2D = require('common/math/Point2D');
+    var Range = require('common/math/Range');
+    var BarMagnet = require('model/BarMagnet');
+    var Compass = require('model/Compass');
+    var FieldMeter = require('model/FieldMeter');
 
     function FaradayModel() {
       // model elements

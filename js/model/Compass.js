@@ -5,14 +5,12 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'easel',
-    'common/util/Logger',
-    'common/model/Property',
-    'model/CompassKinematics'
-  ],
-  function( Easel, Logger, Property, CompassKinematics ) {
+define( function( require) {
+
+    var Easel = require( 'easel' );
+    var Logger = require( 'common/util/Logger' );
+    var Property = require( 'common/model/Property' );
+    var CompassKinematics = require( 'model/CompassKinematics' );
 
     /**
      * @param {Point} location

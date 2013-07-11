@@ -10,14 +10,12 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'common/util/Logger',
-    'common/math/Point2D',
-    'common/model/Property',
-    'common/math/Vector2D'
-  ],
-  function( Logger, Point2D, Property, Vector2D ) {
+define( function( require ) {
+
+    var Logger = require('common/util/Logger');
+    var Point2D = require('common/math/Point2D');
+    var Property = require('common/model/Property');
+    var Vector2D = require('common/math/Vector2D');
 
     /**
      * @class BarMagnet
