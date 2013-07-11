@@ -7,7 +7,7 @@
  */
 define(
   [],
-  function () {
+  function() {
 
     function Range( min, max, defaultValue ) {
       this.min = min;
@@ -16,7 +16,7 @@ define(
     }
 
     // @return {String}
-    Range.prototype.toString = function () {
+    Range.prototype.toString = function() {
       return '[Range (min=' + this.min + ' max=' + this.max + ' defaultValue=' + this.defaultValue + ')]';
     };
 

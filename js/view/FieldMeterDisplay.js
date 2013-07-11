@@ -14,7 +14,7 @@ define(
     'i18n!../../nls/faraday-strings',
     'image!images/fieldMeter.png'
   ],
-  function ( Easel, DragHandler, Inheritance, MathUtil, Strings, fieldMeterImage ) {
+  function( Easel, DragHandler, Inheritance, MathUtil, Strings, fieldMeterImage ) {
 
     /**
      * @param {FieldMeter} fieldMeter
@@ -77,21 +77,21 @@ define(
       angleText.textAlign = TEXT_ALIGN;
 
       // @param {Point2D} point
-      DragHandler.register( this, function ( point ) {
+      DragHandler.register( this, function( point ) {
         fieldMeter.location.set( mvt.viewToModel( point ) );
       } );
 
       // Register for synchronization with model.
       var that = this;
-      fieldMeter.location.addObserver( function ( /* Point2D */ location ) {
+      fieldMeter.location.addObserver( function( /* Point2D */ location ) {
         var point = mvt.modelToView( location );
         that.x = point.x;
         that.y = point.y;
       } );
-      fieldMeter.visible.addObserver( function ( visible ) {
+      fieldMeter.visible.addObserver( function( visible ) {
         that.visible = visible;
       } );
-      fieldMeter.value.addObserver( function ( /* Vector2D */ vector ) {
+      fieldMeter.value.addObserver( function( /* Vector2D */ vector ) {
         var NUMBER_OF_DECIMALS = 2;
         magnitudeText.text = vector.getMagnitude().toFixed( NUMBER_OF_DECIMALS );
         xText.text = vector.x.toFixed( NUMBER_OF_DECIMALS );

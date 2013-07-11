@@ -11,7 +11,7 @@ define(
     'tpl!../../html/optionsButton.html',
     'tpl!../../html/optionsPanel.html'
   ],
-  function ( WidgetConnector, optionsButtonTemplate, optionsPanelTemplate ) {
+  function( WidgetConnector, optionsButtonTemplate, optionsPanelTemplate ) {
 
     function OptionsPanel() {
     }
@@ -22,7 +22,7 @@ define(
      * @param {FaradayModel} model
      * @param {FaradayStage} stage
      */
-    OptionsPanel.init = function ( strings, model, stage ) {
+    OptionsPanel.init = function( strings, model, stage ) {
 
       // DOM modification ------------------------------------------------------------
 
@@ -31,9 +31,9 @@ define(
       var optionsButtonDiv = $( '#optionsButtonDiv' );
       optionsButtonDiv.append( $( optionsButtonFragment ) ).trigger( 'create' );
       optionsButtonDiv.bind( 'click',
-                             function () {
-                               optionsButtonDiv.hide();
-                             } );
+        function() {
+          optionsButtonDiv.hide();
+        } );
 
       // Add the Options panel to the DOM
       var optionsPanelFragment = optionsPanelTemplate(
@@ -58,7 +58,7 @@ define(
       // Make the Options panel the same height as the window
       $( '#optionsPanel' ).on(
         {
-          popupbeforeposition: function () {
+          popupbeforeposition: function() {
             var h = $( window ).height();
             $( '#optionsPanel' ).css( 'height', h );
           }
@@ -77,20 +77,20 @@ define(
 
       // buttons
       WidgetConnector.connectButtonToFunction( 'flipPolarityButton',
-                                               function () {
-                                                 model.barMagnet.orientation.set( model.barMagnet.orientation.get() + Math.PI );
-                                                 model.compass.startMovingNow();
-                                               } );
+        function() {
+          model.barMagnet.orientation.set( model.barMagnet.orientation.get() + Math.PI );
+          model.compass.startMovingNow();
+        } );
       WidgetConnector.connectButtonToFunction( 'resetAllButton',
-                                               function () {
-                                                 model.reset();
-                                                 stage.reset();
-                                               } );
+        function() {
+          model.reset();
+          stage.reset();
+        } );
 
       // When the panel is closed, make the Options button visible.
       $( '#optionsPanel' ).bind(
         {
-          popupafterclose: function ( event, ui ) {
+          popupafterclose: function( event, ui ) {
             $( '#optionsButtonDiv' ).show();
           }
         } );

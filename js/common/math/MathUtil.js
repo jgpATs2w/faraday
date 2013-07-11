@@ -7,16 +7,16 @@
  */
 define(
   [],
-  function () {
+  function() {
 
     function MathUtil() {
     }
 
-    MathUtil.toRadians = function ( degrees ) {
+    MathUtil.toRadians = function( degrees ) {
       return degrees * Math.PI / 180;
     };
 
-    MathUtil.toDegrees = function ( radians ) {
+    MathUtil.toDegrees = function( radians ) {
       return radians * 180 / Math.PI;
     };
 

@@ -10,7 +10,7 @@ define(
     'common/util/Logger',
     'common/model/Property'
   ],
-  function ( Logger, Property ) {
+  function( Logger, Property ) {
 
     function FieldMeter( location, visible, magnet ) {
 
@@ -23,7 +23,7 @@ define(
 
       // Update the value displayed by the meter.
       var that = this;
-      var updateValue = function () {
+      var updateValue = function() {
         that.value.set( magnet.getFieldAt( that.location.get() ) );
       };
       this.location.addObserver( updateValue );
@@ -33,20 +33,20 @@ define(
 
       //DEBUG
       if ( false ) {
-        this.location.addObserver( function ( newValue ) {
+        this.location.addObserver( function( newValue ) {
           logger.debug( 'location=' + newValue );
         } );
-        this.visible.addObserver( function ( newValue ) {
+        this.visible.addObserver( function( newValue ) {
           logger.debug( 'visible=' + newValue );
         } );
-        this.value.addObserver( function ( newValue ) {
+        this.value.addObserver( function( newValue ) {
           logger.debug( 'value=' + newValue );
         } );
       }
     }
 
     // Resets all properties
-    FieldMeter.prototype.reset = function () {
+    FieldMeter.prototype.reset = function() {
       this.location.reset();
       this.visible.reset();
       // this.value is derived

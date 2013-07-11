@@ -11,7 +11,7 @@ define(
     'common/util/Inheritance',
     'view/CompassNeedleDisplay'
   ],
-  function ( Inheritance, CompassNeedleDisplay ) {
+  function( Inheritance, CompassNeedleDisplay ) {
 
     /**
      * @param {Dimension2D} size

@@ -8,7 +8,7 @@
  */
 define(
   [ 'common/math/Point2D' ],
-  function ( Point2D ) {
+  function( Point2D ) {
 
     function DragHandler() {
     }
@@ -18,26 +18,26 @@ define(
      * @param {DisplayObject} displayObject
      * @param {Function} dragFunction function called while dragging, params: {Point2D}
      */
-    DragHandler.register = function ( displayObject, dragFunction ) {
+    DragHandler.register = function( displayObject, dragFunction ) {
 
       // Drag cursor
-      displayObject.onMouseOver = function () {
+      displayObject.onMouseOver = function() {
         document.body.style.cursor = 'pointer';
       };
 
       // Normal cursor
-      displayObject.onMouseOut = function () {
+      displayObject.onMouseOut = function() {
         document.body.style.cursor = 'default';
       };
 
       // @param {MouseEvent} pressEvent
-      displayObject.onPress = function ( pressEvent ) {
+      displayObject.onPress = function( pressEvent ) {
 
         // Make dragging relative to touch Point2D.
         var relativePressPoint = null;
 
         // @param {MouseEvent} moveEvent
-        pressEvent.onMouseMove = function ( moveEvent ) {
+        pressEvent.onMouseMove = function( moveEvent ) {
           var transformed = moveEvent.target.parent.globalToLocal( moveEvent.stageX, moveEvent.stageY );
           if ( relativePressPoint === null ) {
             relativePressPoint = new Point2D( pressEvent.target.x - transformed.x, pressEvent.target.y - transformed.y );

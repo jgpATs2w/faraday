@@ -7,7 +7,7 @@
  */
 define(
   [ 'common/math/Point2D' ],
-  function ( Point2D ) {
+  function( Point2D ) {
 
     /**
      * @constructor
@@ -21,7 +21,7 @@ define(
        * @param {Number|Point2D} value
        * @return {Number|Point2D}
        */
-      this.modelToView = function ( value ) {
+      this.modelToView = function( value ) {
         if ( typeof( value ) === 'number' ) {
           return value * scale;
         }
@@ -38,7 +38,7 @@ define(
        * @param {Number|Point2D} value
        * @return {Number|Point2D}
        */
-      this.viewToModel = function ( value ) {
+      this.viewToModel = function( value ) {
         if ( typeof( value ) === 'number' ) {
           return value / scale;
         }

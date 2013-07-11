@@ -7,7 +7,7 @@
  */
 define(
   [],
-  function () {
+  function() {
 
     function CanvasQuirks() {
     }
@@ -17,11 +17,11 @@ define(
      * See http://stackoverflow.com/questions/2659999/html5-canvas-hand-cursor-problems
      * @param {Canvas} canvas
      */
-    CanvasQuirks.fixTextCursor = function ( canvas ) {
-      canvas.onselectstart = function () {
+    CanvasQuirks.fixTextCursor = function( canvas ) {
+      canvas.onselectstart = function() {
         return false;
       }; // IE
-      canvas.onmousedown = function () {
+      canvas.onmousedown = function() {
         return false;
       }; // Mozilla
     }

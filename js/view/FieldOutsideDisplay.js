@@ -17,7 +17,7 @@ define(
     'common/math/Point2D',
     'view/FieldPointDisplay'
   ],
-  function ( Easel, Inheritance, MathUtil, Dimension2D, Point2D, FieldPointDisplay ) {
+  function( Easel, Inheritance, MathUtil, Dimension2D, Point2D, FieldPointDisplay ) {
 
     /**
      * @param {BarMagnet} barMagnet
@@ -34,7 +34,7 @@ define(
       // create a grid of compass needles
       var needles = [];
       var that = this;
-      this.resize = function ( canvasSize ) {
+      this.resize = function( canvasSize ) {
 
         that.removeAllChildren();
         needles.length = 0; // clears the array
@@ -64,10 +64,10 @@ define(
       };
 
       // Register for synchronization with model.
-      this.updateField = function () {
+      this.updateField = function() {
         if ( that.visible ) {
           // @param {FieldPointDisplay} item
-          needles.forEach( function ( needle ) {
+          needles.forEach( function( needle ) {
             var vector = barMagnet.getFieldAt( mvt.viewToModel( needle.location ) );
             needle.rotation = MathUtil.toDegrees( vector.getAngle() );
             needle.alpha = Math.min( 1, vector.getMagnitude() / barMagnet.strengthRange.max );

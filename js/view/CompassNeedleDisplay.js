@@ -11,7 +11,7 @@ define(
     'common/math/Dimension2D',
     'common/util/Inheritance'
   ],
-  function ( Easel, Dimension2D, Inheritance ) {
+  function( Easel, Dimension2D, Inheritance ) {
 
     /**
      * @param {Dimension2D} size

@@ -17,7 +17,7 @@ require(
     'view/OptionsPanel',
     'view/FaradayStage'
   ],
-  function ( Easel, strings, CanvasQuirks, Logger, ModelViewTransform2D, PrototypeDialog, FaradayModel, OptionsPanel, FaradayStage ) {
+  function( Easel, strings, CanvasQuirks, Logger, ModelViewTransform2D, PrototypeDialog, FaradayModel, OptionsPanel, FaradayStage ) {
 
     Logger.enabled = true;
 

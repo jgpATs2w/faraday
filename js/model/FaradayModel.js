@@ -15,7 +15,7 @@ define(
     'model/Compass',
     'model/FieldMeter'
   ],
-  function ( Easel, Dimension2D, Point2D, Range, BarMagnet, Compass, FieldMeter ) {
+  function( Easel, Dimension2D, Point2D, Range, BarMagnet, Compass, FieldMeter ) {
 
     function FaradayModel() {
       // model elements
@@ -25,14 +25,14 @@ define(
     }
 
     // Resets all model elements
-    FaradayModel.prototype.reset = function () {
+    FaradayModel.prototype.reset = function() {
       this.barMagnet.reset();
       this.fieldMeter.reset();
       this.compass.reset();
     };
 
     // Animates the model, called by Easel.Ticker
-    FaradayModel.prototype.tick = function () {
+    FaradayModel.prototype.tick = function() {
       this.compass.tick();
     };
 

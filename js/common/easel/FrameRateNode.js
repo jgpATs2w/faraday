@@ -10,7 +10,7 @@ define(
     'easel',
     'common/util/Inheritance'
   ],
-  function ( Easel, Inheritance ) {
+  function( Easel, Inheritance ) {
 
     function FrameRateNode( foreground ) {
       Easel.Text.call( this, '?', 'bold 20px Arial', foreground ); // constructor stealing
@@ -19,7 +19,7 @@ define(
 
     Inheritance.inheritPrototype( FrameRateNode, Easel.Text );
 
-    FrameRateNode.prototype.tick = function () {
+    FrameRateNode.prototype.tick = function() {
       this.text = Easel.Ticker.getMeasuredFPS().toFixed( 0 ) + ' fps';
     };
 

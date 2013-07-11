@@ -20,7 +20,7 @@ define(
     'common/math/MathUtil',
     'image!images/barMagnet.png'
   ],
-  function ( Easel, DragHandler, Inheritance, MathUtil, barMagnetImage ) {
+  function( Easel, DragHandler, Inheritance, MathUtil, barMagnetImage ) {
 
     /**
      * @class BarMagnetDisplay
@@ -42,7 +42,7 @@ define(
       this.regY = this.image.height / 2;
 
       // @param {Point2D} point
-      DragHandler.register( this, function ( point ) {
+      DragHandler.register( this, function( point ) {
         barMagnet.location.set( mvt.viewToModel( point ) );
       } );
 

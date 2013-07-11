@@ -7,7 +7,7 @@
  */
 define(
   [],
-  function () {
+  function() {
 
     function Inheritance() {
     }
@@ -32,7 +32,7 @@ define(
      * <br>
      * (source: JavaScript for Web Developers, N. Zakas, Wrox Press, p. 212-215)
      */
-    Inheritance.inheritPrototype = function ( subtype, supertype ) {
+    Inheritance.inheritPrototype = function( subtype, supertype ) {
       var prototype = Object( supertype.prototype ); // create a clone of the supertype's prototype
       prototype.constructor = subtype; // account for losing the default constructor when prototype is overwritten
       subtype.prototype = prototype; // assign cloned prototype to subtype
@@ -66,8 +66,8 @@ define(
      * @param context typically this
      * @return {Function}
      */
-    Inheritance.callSuper = function ( supertype, name, context ) {
-      (function () {
+    Inheritance.callSuper = function( supertype, name, context ) {
+      (function() {
         var fn = supertype.prototype[name];
         Function.call.apply( fn, arguments );
       })( context );

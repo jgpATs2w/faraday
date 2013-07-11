@@ -12,7 +12,7 @@ define(
     'common/model/Property',
     'model/CompassKinematics'
   ],
-  function ( Easel, Logger, Property, CompassKinematics ) {
+  function( Easel, Logger, Property, CompassKinematics ) {
 
     /**
      * @param {Point} location
@@ -32,26 +32,26 @@ define(
 
       //DEBUG
       if ( false ) {
-        this.location.addObserver( function ( newValue ) {
+        this.location.addObserver( function( newValue ) {
           logger.debug( 'location=' + newValue );
         } );
-        this.visible.addObserver( function ( newValue ) {
+        this.visible.addObserver( function( newValue ) {
           logger.debug( 'visible=' + newValue );
         } );
-        this.orientation.addObserver( function ( newValue ) {
+        this.orientation.addObserver( function( newValue ) {
           logger.debug( 'orientation=' + newValue );
         } );
       }
     }
 
     // Resets all properties
-    Compass.prototype.reset = function () {
+    Compass.prototype.reset = function() {
       this.location.reset();
       this.visible.reset();
     };
 
     // Animates the compass needle
-    Compass.prototype.tick = function () {
+    Compass.prototype.tick = function() {
       var frames = Easel.Ticker.getInterval() / ( 1000 / Easel.Ticker.getFPS() );
       this.kinematics.animateOrientation( frames );
     };
@@ -61,7 +61,7 @@ define(
      * In some situations, such as when the magnet polarity is flipped,
      * it can take quite awhile for the needle to start moving.
      */
-    Compass.prototype.startMovingNow = function () {
+    Compass.prototype.startMovingNow = function() {
       this.kinematics.startMovingNow();
     };
 

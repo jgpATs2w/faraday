@@ -7,7 +7,7 @@
  */
 define(
   [],
-  function () {
+  function() {
 
     /**
      * @constructor
@@ -20,7 +20,7 @@ define(
     }
 
     // @return {String}
-    Dimension2D.prototype.toString = function () {
+    Dimension2D.prototype.toString = function() {
       return '[Dimension2D (width=' + this.width + ' height=' + this.height + ')]';
     };
 

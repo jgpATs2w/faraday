@@ -17,7 +17,7 @@ define(
     'common/model/Property',
     'common/math/Vector2D'
   ],
-  function ( Logger, Point2D, Property, Vector2D ) {
+  function( Logger, Point2D, Property, Vector2D ) {
 
     /**
      * @class BarMagnet
@@ -42,20 +42,20 @@ define(
       // Debugging output
       var that = this;
       if ( false ) {
-        this.location.addObserver( function ( newValue ) {
+        this.location.addObserver( function( newValue ) {
           that.logger.debug( 'location=' + newValue );
         } );
-        this.strength.addObserver( function ( newValue ) {
+        this.strength.addObserver( function( newValue ) {
           that.logger.debug( 'strength=' + newValue );
         } );
-        this.orientation.addObserver( function ( newValue ) {
+        this.orientation.addObserver( function( newValue ) {
           that.logger.debug( 'orientation=' + newValue );
         } );
       }
     }
 
     // Resets all properties
-    BarMagnet.prototype.reset = function () {
+    BarMagnet.prototype.reset = function() {
       this.location.reset();
       this.strength.reset();
       this.orientation.reset();
@@ -68,7 +68,7 @@ define(
      * @param {Point2D} point
      * @return {Boolean}
      */
-    BarMagnet.prototype.contains = function ( point ) {
+    BarMagnet.prototype.contains = function( point ) {
       return ( point.x >= -this.size.width / 2 ) && ( point.x <= this.size.width / 2 ) &&
              ( point.y >= -this.size.height / 2 ) && ( point.y <= this.size.height / 2 );
     };
@@ -78,7 +78,7 @@ define(
      * @param {Point2D} point
      * @return {Point2D}
      */
-    BarMagnet.prototype.normalizePoint = function ( point ) {
+    BarMagnet.prototype.normalizePoint = function( point ) {
       var v = new Vector2D( point.x - this.location.get().x, point.y - this.location.get().y ); // translate
       v = v.rotate( -this.orientation.get() ); // rotate
       return new Point2D( v.x, v.y );
@@ -94,7 +94,7 @@ define(
      * @param {Point2D} point
      * @return {Vector2D}
      */
-    BarMagnet.prototype.getFieldAt = function ( point ) {
+    BarMagnet.prototype.getFieldAt = function( point ) {
 
       // All of our calculations are based a magnet located at the origin,
       // with the north pole pointing down the X-axis.
@@ -137,7 +137,7 @@ define(
      * @param {Point2D} point the point, relative to the magnet's origin
      * @return {Vector2D}
      */
-    BarMagnet.prototype.getFieldInside = function ( point ) {
+    BarMagnet.prototype.getFieldInside = function( point ) {
       var strength = this.strength.get();
       var w = this.size.width;
       var h = this.size.height;
@@ -195,7 +195,7 @@ define(
      *
      * @param {Point2D} point the point, relative to the magnet's origin
      */
-    BarMagnet.prototype.getFieldOutside = function ( point ) {
+    BarMagnet.prototype.getFieldOutside = function( point ) {
 
       /*
        * Arbitrary 'fudge factor' that controls the B-field transitions between

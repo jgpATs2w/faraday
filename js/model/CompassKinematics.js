@@ -13,7 +13,7 @@ define(
     'model/Compass',
     'model/BarMagnet'
   ],
-  function ( MathUtil, Compass, BarMagnet ) {
+  function( MathUtil, Compass, BarMagnet ) {
 
     function CompassKinematics( compass, barMagnet ) {
 
@@ -31,7 +31,7 @@ define(
        * Gets the orientation of the compass needle, animated over time.
        * @param {Number} frames number of animation frames
        */
-      this.animateOrientation = function ( frames ) {
+      this.animateOrientation = function( frames ) {
 
         var fieldVector = barMagnet.getFieldAt( compass.location.get() );
         var magnitude = fieldVector.getMagnitude();
@@ -75,7 +75,7 @@ define(
        * it can take quite awhile for the needle to start moving.
        * So we give the needle a small amount of angular velocity to get it going.
        */
-      this.startMovingNow = function () {
+      this.startMovingNow = function() {
         omega = 0.03; // adjust as needed for desired behavior
       }
     }

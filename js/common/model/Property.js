@@ -13,7 +13,7 @@
  */
 define(
   [],
-  function () {
+  function() {
 
     /**
      * @class Property
@@ -31,7 +31,7 @@ define(
        * Gets the value.
        * @return {*}
        */
-      this.get = function () {
+      this.get = function() {
         return _value;
       };
 
@@ -41,7 +41,7 @@ define(
        *
        * @param value
        */
-      this.set = function ( value ) {
+      this.set = function( value ) {
         if ( value !== _value ) {
           var oldValue = _value;
           _value = value;
@@ -55,7 +55,7 @@ define(
       /**
        * Resets the value to the initial value.
        */
-      this.reset = function () {
+      this.reset = function() {
         this.set( _initialValue );
       };
 
@@ -66,7 +66,7 @@ define(
        *
        * @param observer a function of the form observer(newValue,oldValue)
        */
-      this.addObserver = function ( observer ) {
+      this.addObserver = function( observer ) {
         if ( _observers.indexOf( observer ) === -1 ) {
           _observers.push( observer );
           observer( _value, null ); // null should be used when an object is expected but unavailable
@@ -79,7 +79,7 @@ define(
        *
        * @param observer
        */
-      this.removeObserver = function ( observer ) {
+      this.removeObserver = function( observer ) {
         var index = _observers.indexOf( observer );
         if ( index !== -1 ) {
           _observers.splice( index, index + 1 );
@@ -95,16 +95,16 @@ define(
        * @param value the value to use when the setter is called.
        * @return a function that can be used to set the specified value.
        */
-      this._set = function ( value ) {
+      this._set = function( value ) {
         return this.set.bind( this, value );
       };
     }
 
     //TODO is this a good way of co-locating small tests?
     // test
-    Property.prototype.test = function () {
+    Property.prototype.test = function() {
       var name = new Property( 'Moe' );
-      var observer = function ( newName, oldName ) {
+      var observer = function( newName, oldName ) {
         console.log( 'newName=' + newName + ', oldName=' + oldName );
       };
       name.addObserver( observer );

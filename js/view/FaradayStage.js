@@ -21,7 +21,7 @@ define(
     'common/easel/FrameRateNode',
     'i18n!../../nls/faraday-strings'
   ],
-  function ( Easel, Dimension2D, Inheritance, ModelViewTransform2D, Point2D, Property, BarMagnetDisplay, CompassDisplay, FieldInsideDisplay, FieldMeterDisplay, FieldOutsideDisplay, FrameRateNode, strings ) {
+  function( Easel, Dimension2D, Inheritance, ModelViewTransform2D, Point2D, Property, BarMagnetDisplay, CompassDisplay, FieldInsideDisplay, FieldMeterDisplay, FieldOutsideDisplay, FrameRateNode, strings ) {
 
     function FaradayStage( canvas, model ) {
 
@@ -47,7 +47,7 @@ define(
       // field outside the magnet
       var fieldOutside = new FieldOutsideDisplay( model.barMagnet, mvt, new Dimension2D( canvas.width, canvas.height ), NEEDLE_SIZE );
       fieldOutside.visible = this.showField.get();
-      this.showField.addObserver( function ( visible ) {
+      this.showField.addObserver( function( visible ) {
         fieldOutside.visible = visible;
         if ( visible ) {
           fieldOutside.updateField();
@@ -60,7 +60,7 @@ define(
       // field inside magnet
       var fieldInside = new FieldInsideDisplay( model.barMagnet, mvt, NEEDLE_SIZE );
       fieldInside.visible = this.seeInside.get();
-      this.seeInside.addObserver( function ( visible ) {
+      this.seeInside.addObserver( function( visible ) {
         fieldInside.visible = visible;
       } );
 
@@ -88,7 +88,7 @@ define(
 
       // resize handler
       var that = this;
-      var handleResize = function () {
+      var handleResize = function() {
 
         // get the window width
         var width = $( window ).width();
@@ -120,7 +120,7 @@ define(
     Inheritance.inheritPrototype( FaradayStage, Easel.Stage );
 
     // Resets all view-specific properties
-    FaradayStage.prototype.reset = function () {
+    FaradayStage.prototype.reset = function() {
       this.seeInside.reset();
       this.showField.reset();
     };

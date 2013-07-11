@@ -8,10 +8,10 @@
  */
 define(
   ['tpl!../../../html/prototype-dialog.html'],
-  function ( template ) {
-    return {init: function ( simName ) {
+  function( template ) {
+    return {init: function( simName ) {
       $( template( {simName: simName} ) ).appendTo( $( 'body' ) );
-      $( '.dialog-overlay' ).click( function () {
+      $( '.dialog-overlay' ).click( function() {
         $( this ).fadeOut( 200 );
       } );
     }};

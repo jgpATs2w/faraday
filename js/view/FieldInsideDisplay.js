@@ -11,7 +11,7 @@ define(
     'common/math/Dimension2D',
     'view/CompassNeedleDisplay'
   ],
-  function ( Easel, Inheritance, MathUtil, Dimension2D, CompassNeedleDisplay ) {
+  function( Easel, Inheritance, MathUtil, Dimension2D, CompassNeedleDisplay ) {
 
     /**
      * @param {BarMagnet} barMagnet
@@ -53,16 +53,16 @@ define(
 
       // sync with model
       var that = this;
-      barMagnet.strength.addObserver( function ( strength ) {
+      barMagnet.strength.addObserver( function( strength ) {
         // Set the alpha of this container, not the individual needles.
         that.alpha = strength / barMagnet.strengthRange.max;
       } );
-      barMagnet.location.addObserver( function ( /* Point2D */ location ) {
+      barMagnet.location.addObserver( function( /* Point2D */ location ) {
         var p = mvt.modelToView( location );
         that.x = p.x;
         that.y = p.y;
       } );
-      barMagnet.orientation.addObserver( function ( orientation /* radians */ ) {
+      barMagnet.orientation.addObserver( function( orientation /* radians */ ) {
         that.rotation = MathUtil.toDegrees( orientation );
       } );
 

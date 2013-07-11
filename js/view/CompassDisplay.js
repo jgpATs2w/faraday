@@ -15,7 +15,7 @@ define(
     'common/math/Vector2D',
     'view/CompassNeedleDisplay'
   ],
-  function ( Easel, Dimension2D, DragHandler, Inheritance, MathUtil, Vector2D, CompassNeedleDisplay ) {
+  function( Easel, Dimension2D, DragHandler, Inheritance, MathUtil, Vector2D, CompassNeedleDisplay ) {
 
     /**
      * @param {Compass} compass
@@ -72,7 +72,7 @@ define(
       this.addChild( pin );
 
       // @param {Point2D} point
-      DragHandler.register( this, function ( point ) {
+      DragHandler.register( this, function( point ) {
         compass.location.set( mvt.viewToModel( point ) );
       } );
 

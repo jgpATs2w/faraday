@@ -7,7 +7,7 @@
  */
 define(
   [],
-  function () {
+  function() {
 
     /**
      * @class Logger
@@ -22,29 +22,29 @@ define(
     Logger.enabled = false;
 
     // All other methods call this one, which prints to the console.
-    Logger.log = function ( prefix, sourceName, message ) {
+    Logger.log = function( prefix, sourceName, message ) {
       if ( Logger.enabled ) {
         console.log( prefix + ' : ' + sourceName + ' : ' + message );
       }
     };
 
-    Logger.prototype.debug = function ( message ) {
+    Logger.prototype.debug = function( message ) {
       Logger.log( 'DEBUG', this.sourceName, message );
     };
 
-    Logger.prototype.info = function ( message ) {
+    Logger.prototype.info = function( message ) {
       Logger.log( 'INFO', this.sourceName, message );
     };
 
-    Logger.prototype.warn = function ( message ) {
+    Logger.prototype.warn = function( message ) {
       Logger.log( 'WARNING', this.sourceName, message );
     };
 
-    Logger.prototype.error = function ( message ) {
+    Logger.prototype.error = function( message ) {
       Logger.log( 'ERROR', this.sourceName, message );
     };
 
-    Logger.prototype.fatal = function ( message ) {
+    Logger.prototype.fatal = function( message ) {
       Logger.log( 'FATAL', this.sourceName, message );
     };
 
