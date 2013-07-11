@@ -6,9 +6,7 @@
  *
  * @author Chris Malley (cmalley@pixelzoom.com)
  */
-define(
-  [],
-  function() {
+define( function() {
 
     function WidgetConnector() {
     }

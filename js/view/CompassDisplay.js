@@ -5,17 +5,15 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'easel',
-    'common/math/Dimension2D',
-    'common/easel/DragHandler',
-    'common/util/Inheritance',
-    'common/math/MathUtil',
-    'common/math/Vector2D',
-    'view/CompassNeedleDisplay'
-  ],
-  function( Easel, Dimension2D, DragHandler, Inheritance, MathUtil, Vector2D, CompassNeedleDisplay ) {
+define( function( require ) {
+
+    var Easel = require('easel');
+    var Dimension2D = require('common/math/Dimension2D');
+    var DragHandler = require('common/easel/DragHandler');
+    var Inheritance = require('common/util/Inheritance');
+    var MathUtil = require('common/math/MathUtil');
+    var Vector2D = require('common/math/Vector2D');
+    var CompassNeedleDisplay = require('view/CompassNeedleDisplay');
 
     /**
      * @param {Compass} compass

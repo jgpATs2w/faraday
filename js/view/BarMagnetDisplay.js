@@ -12,15 +12,13 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'easel',
-    'common/easel/DragHandler',
-    'common/util/Inheritance',
-    'common/math/MathUtil',
-    'image!images/barMagnet.png'
-  ],
-  function( Easel, DragHandler, Inheritance, MathUtil, barMagnetImage ) {
+define( function(require) {
+
+    var Easel = require('easel');
+    var DragHandler = require('common/easel/DragHandler');
+    var Inheritance = require('common/util/Inheritance');
+    var MathUtil = require('common/math/MathUtil');
+    var barMagnetImage = require('image!images/barMagnet.png');
 
     /**
      * @class BarMagnetDisplay

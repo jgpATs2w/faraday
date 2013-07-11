@@ -5,13 +5,11 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'view/WidgetConnector',
-    'tpl!../../html/optionsButton.html',
-    'tpl!../../html/optionsPanel.html'
-  ],
-  function( WidgetConnector, optionsButtonTemplate, optionsPanelTemplate ) {
+define( function(require) {
+
+    var WidgetConnector = require('view/WidgetConnector');
+    var optionsButtonTemplate = require('tpl!../../html/optionsButton.html');
+    var optionsPanelTemplate = require('tpl!../../html/optionsPanel.html');
 
     function OptionsPanel() {
     }

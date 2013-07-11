@@ -5,13 +5,11 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'easel',
-    'common/math/Dimension2D',
-    'common/util/Inheritance'
-  ],
-  function( Easel, Dimension2D, Inheritance ) {
+define( function(require) {
+
+    var Easel = require('easel');
+    var Dimension2D = require('common/math/Dimension2D');
+    var Inheritance = require('common/util/Inheritance');
 
     /**
      * @param {Dimension2D} size
