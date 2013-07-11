@@ -1,7 +1,7 @@
 // Copyright 2002-2013, University of Colorado
 
 /**
- * Encapsulates "quirks detection" for HTML Canvas.
+ * Encapsulates 'quirks detection' for HTML Canvas.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */

@@ -30,7 +30,7 @@ define(
      */
     function BarMagnet( location, size, strength, strengthRange, orientation ) {
 
-      this.logger = new Logger( "BarMagnet" ); // logger for this source file
+      this.logger = new Logger( 'BarMagnet' ); // logger for this source file
 
       // initialize properties
       this.location = new Property( location );
@@ -43,13 +43,13 @@ define(
       var that = this;
       if ( false ) {
         this.location.addObserver( function ( newValue ) {
-          that.logger.debug( "location=" + newValue );
+          that.logger.debug( 'location=' + newValue );
         } );
         this.strength.addObserver( function ( newValue ) {
-          that.logger.debug( "strength=" + newValue );
+          that.logger.debug( 'strength=' + newValue );
         } );
         this.orientation.addObserver( function ( newValue ) {
-          that.logger.debug( "orientation=" + newValue );
+          that.logger.debug( 'orientation=' + newValue );
         } );
       }
     }
@@ -119,7 +119,7 @@ define(
       var magnetStrength = this.strength.get();
       if ( magnitude > magnetStrength ) {
         vector = Vector2D.createPolar( magnetStrength, vector.getAngle() );
-//                    this.logger.warn( "B-field magnitude exceeds magnet strength by " + (magnitude - magnetStrength ) ); //TODO this is happening a lot
+//                    this.logger.warn( 'B-field magnitude exceeds magnet strength by ' + (magnitude - magnetStrength ) ); //TODO this is happening a lot
       }
 
       return vector;
@@ -198,7 +198,7 @@ define(
     BarMagnet.prototype.getFieldOutside = function ( point ) {
 
       /*
-       * Arbitrary "fudge factor" that controls the B-field transitions between
+       * Arbitrary 'fudge factor' that controls the B-field transitions between
        * inside and outside the magnet.  Adjust this using the provided developer control.
        */
       var INSIDE_OUTSIDE_TRANSITION_FACTOR = 321;

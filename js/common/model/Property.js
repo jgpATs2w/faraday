@@ -3,7 +3,7 @@
 /**
  * An observable property, notifies registered observers when the value changes.
  *
- * Uses the "Constructor" pattern for object creation, which has the downside that
+ * Uses the 'Constructor' pattern for object creation, which has the downside that
  * all properties are created once for each instance. It would be nice if our functions
  * were shared. But since the only way to create private fields is in the constructor,
  * and the functions need access to those private fields, there doesn't seem to be
@@ -103,14 +103,14 @@ define(
     //TODO is this a good way of co-locating small tests?
     // test
     Property.prototype.test = function () {
-      var name = new Property( "Moe" );
+      var name = new Property( 'Moe' );
       var observer = function ( newName, oldName ) {
-        console.log( "newName=" + newName + ", oldName=" + oldName );
+        console.log( 'newName=' + newName + ', oldName=' + oldName );
       };
       name.addObserver( observer );
-      name.set( "Larry" ); // observer should be notified
+      name.set( 'Larry' ); // observer should be notified
       name.removeObserver( observer );
-      name.set( "Curly" ); // this should result in no notification
+      name.set( 'Curly' ); // this should result in no notification
     };
 
     return Property;

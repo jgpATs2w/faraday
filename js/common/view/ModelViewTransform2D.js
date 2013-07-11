@@ -29,7 +29,7 @@ define(
           return new Point2D( ( value.x + offset.x ) * scale, ( value.y + offset.y ) * scale );
         }
         else {
-          throw new Error( "value has unsupported type: " + typeof( value ) );
+          throw new Error( 'value has unsupported type: ' + typeof( value ) );
         }
       };
 
@@ -46,7 +46,7 @@ define(
           return new Point2D( ( value.x / scale ) - offset.x, ( value.y / scale ) - offset.y );
         }
         else {
-          throw new Error( "value has unsupported type: " + typeof( value ) );
+          throw new Error( 'value has unsupported type: ' + typeof( value ) );
         }
       };
     }

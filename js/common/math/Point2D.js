@@ -31,7 +31,7 @@ define(
 
     // @return {String}
     Point2D.prototype.toString = function () {
-      return "[Point2D (x=" + this.x + " y=" + this.y + ")]";
+      return '[Point2D (x=' + this.x + ' y=' + this.y + ')]';
     };
 
     // @return {Boolean}

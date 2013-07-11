@@ -28,8 +28,8 @@ define(
 
       // Add the Options button to the DOM, hide it when it's clicked
       var optionsButtonFragment = optionsButtonTemplate( { options: strings.options } );
-      var optionsButtonDiv = $( "#optionsButtonDiv" );
-      optionsButtonDiv.append( $( optionsButtonFragment ) ).trigger( "create" );
+      var optionsButtonDiv = $( '#optionsButtonDiv' );
+      optionsButtonDiv.append( $( optionsButtonFragment ) ).trigger( 'create' );
       optionsButtonDiv.bind( 'click',
                              function () {
                                optionsButtonDiv.hide();
@@ -47,51 +47,51 @@ define(
           showFieldMeter: strings.showFieldMeter,
           resetAll: strings.resetAll
         } );
-      $( "#optionsPanelDiv" ).append( $( optionsPanelFragment ) ).trigger( "create" );
+      $( '#optionsPanelDiv' ).append( $( optionsPanelFragment ) ).trigger( 'create' );
 
       /*
        * Workaround for jQuery.mobile bug,
        * see http://stackoverflow.com/questions/8088837/jquery-mobile-triggercreate-command-not-working
        */
-      $( ".ui-page" ).trigger( 'pagecreate' );
+      $( '.ui-page' ).trigger( 'pagecreate' );
 
       // Make the Options panel the same height as the window
-      $( "#optionsPanel" ).on(
+      $( '#optionsPanel' ).on(
         {
           popupbeforeposition: function () {
             var h = $( window ).height();
-            $( "#optionsPanel" ).css( "height", h );
+            $( '#optionsPanel' ).css( 'height', h );
           }
         } );
 
       // Wire up DOM components ------------------------------------------------------
 
       // slider
-      WidgetConnector.connectSliderToProperty( "strengthSlider", model.barMagnet.strength );
+      WidgetConnector.connectSliderToProperty( 'strengthSlider', model.barMagnet.strength );
 
       // check boxes
-      WidgetConnector.connectCheckBoxToProperty( "seeInsideCheckBox", stage.seeInside );
-      WidgetConnector.connectCheckBoxToProperty( "compassCheckBox", model.compass.visible );
-      WidgetConnector.connectCheckBoxToProperty( "fieldCheckBox", stage.showField );
-      WidgetConnector.connectCheckBoxToProperty( "meterCheckBox", model.fieldMeter.visible );
+      WidgetConnector.connectCheckBoxToProperty( 'seeInsideCheckBox', stage.seeInside );
+      WidgetConnector.connectCheckBoxToProperty( 'compassCheckBox', model.compass.visible );
+      WidgetConnector.connectCheckBoxToProperty( 'fieldCheckBox', stage.showField );
+      WidgetConnector.connectCheckBoxToProperty( 'meterCheckBox', model.fieldMeter.visible );
 
       // buttons
-      WidgetConnector.connectButtonToFunction( "flipPolarityButton",
+      WidgetConnector.connectButtonToFunction( 'flipPolarityButton',
                                                function () {
                                                  model.barMagnet.orientation.set( model.barMagnet.orientation.get() + Math.PI );
                                                  model.compass.startMovingNow();
                                                } );
-      WidgetConnector.connectButtonToFunction( "resetAllButton",
+      WidgetConnector.connectButtonToFunction( 'resetAllButton',
                                                function () {
                                                  model.reset();
                                                  stage.reset();
                                                } );
 
       // When the panel is closed, make the Options button visible.
-      $( "#optionsPanel" ).bind(
+      $( '#optionsPanel' ).bind(
         {
           popupafterclose: function ( event, ui ) {
-            $( "#optionsButtonDiv" ).show();
+            $( '#optionsButtonDiv' ).show();
           }
         } );
     };

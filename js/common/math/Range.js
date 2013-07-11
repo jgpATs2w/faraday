@@ -17,7 +17,7 @@ define(
 
     // @return {String}
     Range.prototype.toString = function () {
-      return "[Range (min=" + this.min + " max=" + this.max + " defaultValue=" + this.defaultValue + ")]";
+      return '[Range (min=' + this.min + ' max=' + this.max + ' defaultValue=' + this.defaultValue + ')]';
     };
 
     return Range;

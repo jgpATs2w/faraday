@@ -36,12 +36,12 @@ define(
       var titleText = new Easel.Text( Strings.magneticField, '14px Arial', 'white' );
 
       // 4 values
-      var VALUE_FONT = "18px Arial";
+      var VALUE_FONT = '18px Arial';
       var VALUE_COLOR = 'white';
-      var magnitudeText = new Easel.Text( "?", VALUE_FONT, VALUE_COLOR );
-      var xText = new Easel.Text( "?", VALUE_FONT, VALUE_COLOR );
-      var yText = new Easel.Text( "?", VALUE_FONT, VALUE_COLOR );
-      var angleText = new Easel.Text( "?", VALUE_FONT, VALUE_COLOR );
+      var magnitudeText = new Easel.Text( '?', VALUE_FONT, VALUE_COLOR );
+      var xText = new Easel.Text( '?', VALUE_FONT, VALUE_COLOR );
+      var yText = new Easel.Text( '?', VALUE_FONT, VALUE_COLOR );
+      var angleText = new Easel.Text( '?', VALUE_FONT, VALUE_COLOR );
 
       // rendering order
       this.addChild( meter );
@@ -52,8 +52,8 @@ define(
       this.addChild( angleText );
 
       // layout
-      titleText.textAlign = "center";
-      titleText.textBaseline = "middle";
+      titleText.textAlign = 'center';
+      titleText.textBaseline = 'middle';
       titleText.x = meter.image.width / 2;
       titleText.y = 84;
       var TEXT_X = 110;

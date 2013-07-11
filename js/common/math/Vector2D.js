@@ -55,7 +55,7 @@ define(
 
     // @return {String}
     Vector2D.prototype.toString = function () {
-      return "[Vector2D (x=" + this.x + " y=" + this.y + ")]";
+      return '[Vector2D (x=' + this.x + ' y=' + this.y + ')]';
     };
 
     /**

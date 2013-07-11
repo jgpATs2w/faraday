@@ -22,7 +22,7 @@ define(
      */
     function Compass( location, visible, magnet ) {
 
-      var logger = new Logger( "Compass" ); // logger for this source file
+      var logger = new Logger( 'Compass' ); // logger for this source file
 
       // initialize properties
       this.location = new Property( location );
@@ -33,13 +33,13 @@ define(
       //DEBUG
       if ( false ) {
         this.location.addObserver( function ( newValue ) {
-          logger.debug( "location=" + newValue );
+          logger.debug( 'location=' + newValue );
         } );
         this.visible.addObserver( function ( newValue ) {
-          logger.debug( "visible=" + newValue );
+          logger.debug( 'visible=' + newValue );
         } );
         this.orientation.addObserver( function ( newValue ) {
-          logger.debug( "orientation=" + newValue );
+          logger.debug( 'orientation=' + newValue );
         } );
       }
     }

@@ -18,7 +18,7 @@ define(
      * @param f a function that expects no parameters
      */
     WidgetConnector.connectButtonToFunction = function ( id, f ) {
-      $( "#" + id ).bind( 'click', f );
+      $( '#' + id ).bind( 'click', f );
     }
 
     /**
@@ -27,16 +27,16 @@ define(
      */
     WidgetConnector.connectCheckBoxToProperty = function ( id, booleanProperty ) {
 
-      var checkBox = $( "#" + id ); // caution: this is actually a "wrapped set"
+      var checkBox = $( '#' + id ); // caution: this is actually a 'wrapped set'
 
       // sync model with check box
       checkBox.bind( 'change', function () {
-        booleanProperty.set( checkBox.attr( "checked" ) );
+        booleanProperty.set( checkBox.attr( 'checked' ) );
       } );
 
       // sync check box with model
       booleanProperty.addObserver( function ( checked ) {
-        checkBox.attr( "checked", checked ).checkboxradio( "refresh" );
+        checkBox.attr( 'checked', checked ).checkboxradio( 'refresh' );
       } );
     };
 
@@ -46,16 +46,16 @@ define(
      */
     WidgetConnector.connectSliderToProperty = function ( id, numberProperty ) {
 
-      var slider = $( "#" + id ); // caution: this is actually a "wrapped set"
+      var slider = $( '#' + id ); // caution: this is actually a 'wrapped set'
 
       // sync model with check box
       slider.bind( 'change', function () {
-        numberProperty.set( slider.attr( "value" ) );
+        numberProperty.set( slider.attr( 'value' ) );
       } );
 
       // sync check box with model
       numberProperty.addObserver( function ( value ) {
-        slider.attr( "value", value ).slider( "refresh" );
+        slider.attr( 'value', value ).slider( 'refresh' );
       } );
     };
 

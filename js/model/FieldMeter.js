@@ -14,7 +14,7 @@ define(
 
     function FieldMeter( location, visible, magnet ) {
 
-      var logger = new Logger( "FieldMeter" ); // logger for this source file
+      var logger = new Logger( 'FieldMeter' ); // logger for this source file
 
       // initialize properties
       this.location = new Property( location );
@@ -34,13 +34,13 @@ define(
       //DEBUG
       if ( false ) {
         this.location.addObserver( function ( newValue ) {
-          logger.debug( "location=" + newValue );
+          logger.debug( 'location=' + newValue );
         } );
         this.visible.addObserver( function ( newValue ) {
-          logger.debug( "visible=" + newValue );
+          logger.debug( 'visible=' + newValue );
         } );
         this.value.addObserver( function ( newValue ) {
-          logger.debug( "value=" + newValue );
+          logger.debug( 'value=' + newValue );
         } );
       }
     }

@@ -56,7 +56,7 @@ define(
      * SubType.prototype = new SuperType(); // prototype chaining
      *
      * SubType.prototype.reset = function() {
-     *     Inheritance.callSuper( SuperType, "reset", this ); // call overridden super method
+     *     Inheritance.callSuper( SuperType, 'reset', this ); // call overridden super method
      *     // do subtype-specific stuff
      * }
      * </code>

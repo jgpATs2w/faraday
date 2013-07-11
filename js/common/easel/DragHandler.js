@@ -22,12 +22,12 @@ define(
 
       // Drag cursor
       displayObject.onMouseOver = function () {
-        document.body.style.cursor = "pointer";
+        document.body.style.cursor = 'pointer';
       };
 
       // Normal cursor
       displayObject.onMouseOut = function () {
-        document.body.style.cursor = "default";
+        document.body.style.cursor = 'default';
       };
 
       // @param {MouseEvent} pressEvent
