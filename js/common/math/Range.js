@@ -5,9 +5,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [],
-  function() {
+define( function() {
 
     function Range( min, max, defaultValue ) {
       this.min = min;

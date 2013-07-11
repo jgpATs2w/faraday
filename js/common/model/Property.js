@@ -11,9 +11,7 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [],
-  function() {
+define( function() {
 
     /**
      * @class Property

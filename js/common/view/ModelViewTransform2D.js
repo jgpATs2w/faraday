@@ -5,9 +5,9 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [ 'common/math/Point2D' ],
-  function( Point2D ) {
+define( function( require ) {
+
+    var Point2D = require( 'common/math/Point2D' );
 
     /**
      * @constructor

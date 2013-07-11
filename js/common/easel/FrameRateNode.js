@@ -5,12 +5,10 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'easel',
-    'common/util/Inheritance'
-  ],
-  function( Easel, Inheritance ) {
+define( function( require ) {
+
+    var Easel = require('easel');
+    var Inheritance = require('common/util/Inheritance');
 
     function FrameRateNode( foreground ) {
       Easel.Text.call( this, '?', 'bold 20px Arial', foreground ); // constructor stealing
