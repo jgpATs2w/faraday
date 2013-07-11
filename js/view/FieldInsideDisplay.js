@@ -3,15 +3,13 @@
 /**
  * Visualization of the E-field inside the bar magnet.
  */
-define(
-  [
-    'easel',
-    'common/util/Inheritance',
-    'common/math/MathUtil',
-    'common/math/Dimension2D',
-    'view/CompassNeedleDisplay'
-  ],
-  function( Easel, Inheritance, MathUtil, Dimension2D, CompassNeedleDisplay ) {
+define( function( require ) {
+
+    var Easel = require('easel');
+    var Inheritance = require('common/util/Inheritance');
+    var MathUtil = require('common/math/MathUtil');
+    var Dimension2D = require('common/math/Dimension2D');
+    var CompassNeedleDisplay = require('view/CompassNeedleDisplay');
 
     /**
      * @param {BarMagnet} barMagnet
