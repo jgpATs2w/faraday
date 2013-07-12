@@ -5,124 +5,123 @@
  *
  * @author Chris Malley (PixelZoom, Inc.)
  */
-define(
-  [
-    'easel',
-    'common/math/Dimension2D',
-    'common/util/Inheritance',
-    'common/view/ModelViewTransform2D',
-    'common/math/Point2D',
-    'common/model/Property',
-    'view/BarMagnetDisplay',
-    'view/CompassDisplay',
-    'view/FieldInsideDisplay',
-    'view/FieldMeterDisplay',
-    'view/FieldOutsideDisplay',
-    'common/easel/FrameRateNode'
-  ],
-  function( Easel, Dimension2D, Inheritance, ModelViewTransform2D, Point2D, Property, BarMagnetDisplay, CompassDisplay, FieldInsideDisplay, FieldMeterDisplay, FieldOutsideDisplay, FrameRateNode ) {
+define( function( require ) {
 
-    function FaradayStage( canvas, model ) {
+  // imports
+  var Easel = require( 'easel' );
+  var Dimension2D = require( 'common/math/Dimension2D' );
+  var Inheritance = require( 'common/util/Inheritance' );
+  var ModelViewTransform2D = require( 'common/view/ModelViewTransform2D' );
+  var Point2D = require( 'common/math/Point2D' );
+  var Property = require( 'common/model/Property' );
+  var BarMagnetDisplay = require( 'view/BarMagnetDisplay' );
+  var CompassDisplay = require( 'view/CompassDisplay' );
+  var FieldInsideDisplay = require( 'view/FieldInsideDisplay' );
+  var FieldMeterDisplay = require( 'view/FieldMeterDisplay' );
+  var FieldOutsideDisplay = require( 'view/FieldOutsideDisplay' );
+  var FrameRateNode = require( 'common/easel/FrameRateNode' );
 
-      Easel.Stage.call( this, canvas ); // constructor stealing
+  function FaradayStage( canvas, model ) {
 
-      this.enableMouseOver();
+    Easel.Stage.call( this, canvas ); // constructor stealing
 
-      // properties that are specific to the view (have no model counterpart)
-      this.seeInside = new Property( false );
-      this.showField = new Property( true );
+    this.enableMouseOver();
 
-      // model-view transform
-      var MVT_SCALE = 1; // 1 model unit == 1 view unit
-      var MVT_OFFSET = new Point2D( 0, 0 ); // origin relative to rootContainer
-      var mvt = new ModelViewTransform2D( MVT_SCALE, MVT_OFFSET );
+    // properties that are specific to the view (have no model counterpart)
+    this.seeInside = new Property( false );
+    this.showField = new Property( true );
 
-      // black background
-      var background = new Easel.Shape();
+    // model-view transform
+    var MVT_SCALE = 1; // 1 model unit == 1 view unit
+    var MVT_OFFSET = new Point2D( 0, 0 ); // origin relative to rootContainer
+    var mvt = new ModelViewTransform2D( MVT_SCALE, MVT_OFFSET );
 
-      // needle size, used for field inside and outside the magnet
-      var NEEDLE_SIZE = new Dimension2D( 25, 7 );
+    // black background
+    var background = new Easel.Shape();
 
-      // field outside the magnet
-      var fieldOutside = new FieldOutsideDisplay( model.barMagnet, mvt, new Dimension2D( canvas.width, canvas.height ), NEEDLE_SIZE );
-      fieldOutside.visible = this.showField.get();
-      this.showField.addObserver( function( visible ) {
-        fieldOutside.visible = visible;
-        if ( visible ) {
-          fieldOutside.updateField();
-        }
-      } );
+    // needle size, used for field inside and outside the magnet
+    var NEEDLE_SIZE = new Dimension2D( 25, 7 );
 
-      // bar magnet
-      var barMagnet = new BarMagnetDisplay( model.barMagnet, mvt );
+    // field outside the magnet
+    var fieldOutside = new FieldOutsideDisplay( model.barMagnet, mvt, new Dimension2D( canvas.width, canvas.height ), NEEDLE_SIZE );
+    fieldOutside.visible = this.showField.get();
+    this.showField.addObserver( function( visible ) {
+      fieldOutside.visible = visible;
+      if ( visible ) {
+        fieldOutside.updateField();
+      }
+    } );
 
-      // field inside magnet
-      var fieldInside = new FieldInsideDisplay( model.barMagnet, mvt, NEEDLE_SIZE );
-      fieldInside.visible = this.seeInside.get();
-      this.seeInside.addObserver( function( visible ) {
-        fieldInside.visible = visible;
-      } );
+    // bar magnet
+    var barMagnet = new BarMagnetDisplay( model.barMagnet, mvt );
 
-      // compass
-      var compass = new CompassDisplay( model.compass, mvt, NEEDLE_SIZE );
+    // field inside magnet
+    var fieldInside = new FieldInsideDisplay( model.barMagnet, mvt, NEEDLE_SIZE );
+    fieldInside.visible = this.seeInside.get();
+    this.seeInside.addObserver( function( visible ) {
+      fieldInside.visible = visible;
+    } );
 
-      // field meter
-      var meter = new FieldMeterDisplay( model.fieldMeter, mvt );
+    // compass
+    var compass = new CompassDisplay( model.compass, mvt, NEEDLE_SIZE );
 
-      // frame rate, upper left
-      var frameRateNode = new FrameRateNode( 'white' );
-      frameRateNode.x = 20;
-      frameRateNode.y = 20;
+    // field meter
+    var meter = new FieldMeterDisplay( model.fieldMeter, mvt );
 
-      // rendering order
-      this.addChild( background );
-      this.addChild( frameRateNode );
-      var rootContainer = new Easel.Container();
-      this.addChild( rootContainer );
-      rootContainer.addChild( fieldOutside );
-      rootContainer.addChild( barMagnet );
-      rootContainer.addChild( fieldInside );
-      rootContainer.addChild( compass );
-      rootContainer.addChild( meter );
+    // frame rate, upper left
+    var frameRateNode = new FrameRateNode( 'white' );
+    frameRateNode.x = 20;
+    frameRateNode.y = 20;
 
-      // resize handler
-      var that = this;
-      var handleResize = function() {
+    // rendering order
+    this.addChild( background );
+    this.addChild( frameRateNode );
+    var rootContainer = new Easel.Container();
+    this.addChild( rootContainer );
+    rootContainer.addChild( fieldOutside );
+    rootContainer.addChild( barMagnet );
+    rootContainer.addChild( fieldInside );
+    rootContainer.addChild( compass );
+    rootContainer.addChild( meter );
 
-        // get the window width
-        var width = $( window ).width();
-        var height = $( window ).height();
+    // resize handler
+    var that = this;
+    var handleResize = function() {
 
-        // make the canvas fill the window
-        canvas.width = width;
-        canvas.height = height;
+      // get the window width
+      var width = $( window ).width();
+      var height = $( window ).height();
 
-        // expand the background to fill the canvas
-        background.graphics
-          .beginFill( 'black' )
-          .rect( 0, 0, canvas.width, canvas.height );
+      // make the canvas fill the window
+      canvas.width = width;
+      canvas.height = height;
 
-        // move the root node to the center of the canvas, so the origin remains at the center
-        rootContainer.x = canvas.width / 2;
-        rootContainer.y = canvas.height / 2;
+      // expand the background to fill the canvas
+      background.graphics
+        .beginFill( 'black' )
+        .rect( 0, 0, canvas.width, canvas.height );
 
-        // expand the grid to fill the canvas
-        fieldOutside.resize( new Dimension2D( canvas.width, canvas.height ) );
+      // move the root node to the center of the canvas, so the origin remains at the center
+      rootContainer.x = canvas.width / 2;
+      rootContainer.y = canvas.height / 2;
 
-        // force rendering update
-        that.tick();
-      };
-      $( window ).resize( handleResize );
-      handleResize(); // initial size
-    }
+      // expand the grid to fill the canvas
+      fieldOutside.resize( new Dimension2D( canvas.width, canvas.height ) );
 
-    Inheritance.inheritPrototype( FaradayStage, Easel.Stage );
-
-    // Resets all view-specific properties
-    FaradayStage.prototype.reset = function() {
-      this.seeInside.reset();
-      this.showField.reset();
+      // force rendering update
+      that.tick();
     };
+    $( window ).resize( handleResize );
+    handleResize(); // initial size
+  }
 
-    return FaradayStage;
-  } );
+  Inheritance.inheritPrototype( FaradayStage, Easel.Stage );
+
+  // Resets all view-specific properties
+  FaradayStage.prototype.reset = function() {
+    this.seeInside.reset();
+    this.showField.reset();
+  };
+
+  return FaradayStage;
+} );
