@@ -1,4 +1,4 @@
-// Copyright 2002-2012, University of Colorado
+// Copyright 2002-2013, University of Colorado Boulder
 
 /**
  * Rotates the compass needle using the Verlet algorithm to mimic rotational kinematics.

@@ -1,4 +1,4 @@
-// Copyright 2002-2012, University of Colorado
+// Copyright 2002-2013, University of Colorado Boulder
 
 /**
  * Code for handling the 'this is a prototype' dialog for the Dec 2012 newsletter.
