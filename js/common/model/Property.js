@@ -80,7 +80,7 @@ define( function() {
     this.removeObserver = function( observer ) {
       var index = _observers.indexOf( observer );
       if ( index !== -1 ) {
-        _observers.splice( index, index + 1 );
+        _observers.splice( index, 1 );
       }
     };
 
