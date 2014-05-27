@@ -7,7 +7,7 @@
  */
 define( function( require ) {
 
-  // imports
+  // modules
   var Easel = require( 'easel' );
   var Dimension2D = require( 'common/math/Dimension2D' );
   var Inheritance = require( 'common/util/Inheritance' );
